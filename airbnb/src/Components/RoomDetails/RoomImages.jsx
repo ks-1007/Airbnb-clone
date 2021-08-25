@@ -1,5 +1,3 @@
-export function RoomImages(){
-    return (
-        <div></div>
-    )
+export function RoomImages() {
+  return <div>hello</div>
 }
