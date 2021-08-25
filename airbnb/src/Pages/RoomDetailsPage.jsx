@@ -33,7 +33,13 @@ const NameCont = styled.div`
 `
 const ImageCont = styled.div``
 
-export function RoomDetailsPage({ name, starRating, address, description }) {
+export function RoomDetailsPage({
+  name,
+  starRating,
+  address,
+  description,
+  roomTypes,
+}) {
   const classes = useStyle()
   return (
     <>
@@ -83,7 +89,7 @@ export function RoomDetailsPage({ name, starRating, address, description }) {
         </NameCont>
 
         <RoomImages />
-        <AmenityDetails {...description} />
+        <AmenityDetails description={description} roomTypes={roomTypes} />
       </Container>
     </>
   )

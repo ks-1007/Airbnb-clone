@@ -2,7 +2,15 @@ import { Avatar, Box, Divider, makeStyles } from "@material-ui/core"
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined"
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom"
 import { BiSprayCan } from "react-icons/bi"
+import { FaSwimmingPool } from "react-icons/fa"
 import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined"
+import PoolOutlinedIcon from "@material-ui/icons/PoolOutlined"
+import LocalDiningOutlinedIcon from "@material-ui/icons/LocalDiningOutlined"
+import WifiOutlinedIcon from "@material-ui/icons/WifiOutlined"
+import DirectionsCarOutlinedIcon from "@material-ui/icons/DirectionsCarOutlined"
+import PetsOutlinedIcon from "@material-ui/icons/PetsOutlined"
+import TvOutlinedIcon from "@material-ui/icons/TvOutlined"
+import AcUnitOutlinedIcon from "@material-ui/icons/AcUnitOutlined"
 const useStyle = makeStyles((theme) => ({
   root: {
     textAlign: "left",
@@ -26,7 +34,7 @@ const useStyle = makeStyles((theme) => ({
     marginRight: "10px",
   },
   marginZero: {
-    margin: "0",
+    margin: "5px",
   },
   amenityList: {
     display: "flex",
@@ -39,9 +47,27 @@ const useStyle = makeStyles((theme) => ({
     fontSize: "20px",
     padding: "15px 0",
   },
+  bedroomImage: {
+    height: "250px",
+    width: "370px",
+    borderRadius: "10px",
+    marginRight: "20px",
+  },
+  bedroomCont: {
+    padding: "40px 0",
+  },
+  amenityGrid: {
+    display: "grid",
+    gridTemplateColumns: "50% 50%",
+    justifyContent: "space-around",
+  },
+  iconSize2: {
+    fontSize: "35px",
+    marginRight: "10px",
+  },
 }))
 
-export function AmenityDetails({ short }) {
+export function AmenityDetails({ description, roomTypes }) {
   const classes = useStyle()
   return (
     <Box className={classes.root}>
@@ -94,7 +120,73 @@ export function AmenityDetails({ short }) {
         </Box>
       </Box>
       <Divider />
-      <Box className={classes.description}>{short}</Box>
+      <Box className={classes.description}>{description.short}</Box>
+      <Divider />
+      <Box className={classes.bedroomCont}>
+        <h1 style={{ marginBottom: "20px", marginTop: "0" }}>
+          Where you'll sleep
+        </h1>
+        <Box className={classes.amenity}>
+          <Box>
+            <img
+              className={classes.bedroomImage}
+              src={roomTypes[0].images[7].url}
+              alt=""
+            />
+            <h3 className={classes.marginZero}>Bedroom</h3>
+            <p className={classes.marginZero}>
+              1 queen bed, 1 floor mattress, 1 cot
+            </p>
+          </Box>
+          <Box>
+            <img
+              className={classes.bedroomImage}
+              src={roomTypes[1].images[7].url}
+              alt=""
+            />
+            <h3 className={classes.marginZero}>Living room</h3>
+            <p className={classes.marginZero}>1 floor mattress, 1 cot</p>
+          </Box>
+        </Box>
+      </Box>
+      <Divider />
+      <Box>
+        <h1>What is place offers</h1>
+        <Box className={classes.amenityGrid}>
+          <Box className={classes.amenity}>
+            <PoolOutlinedIcon className={classes.iconSize2} />
+            <p style={{ fontSize: "20px" }}>Beach access</p>
+          </Box>
+          <Box className={classes.amenity}>
+            <LocalDiningOutlinedIcon className={classes.iconSize2} />
+            <p style={{ fontSize: "20px" }}>Kitchen</p>
+          </Box>
+          <Box className={classes.amenity}>
+            <WifiOutlinedIcon className={classes.iconSize2} />
+            <p style={{ fontSize: "20px" }}>Wifi</p>
+          </Box>
+          <Box className={classes.amenity}>
+            <DirectionsCarOutlinedIcon className={classes.iconSize2} />
+            <p style={{ fontSize: "20px" }}>Free parking on premises</p>
+          </Box>
+          <Box className={classes.amenity}>
+            <FaSwimmingPool className={classes.iconSize2} />
+            <p style={{ fontSize: "20px" }}>Shared Pool</p>
+          </Box>
+          <Box className={classes.amenity}>
+            <PetsOutlinedIcon className={classes.iconSize2} />
+            <p style={{ fontSize: "20px" }}>Pets allowed</p>
+          </Box>
+          <Box className={classes.amenity}>
+            <TvOutlinedIcon className={classes.iconSize2} />
+            <p style={{ fontSize: "20px" }}>TV</p>
+          </Box>
+          <Box className={classes.amenity}>
+            <AcUnitOutlinedIcon className={classes.iconSize2} />
+            <p style={{ fontSize: "20px" }}>Air conditioning </p>
+          </Box>
+        </Box>
+      </Box>
       <Divider />
     </Box>
   )
