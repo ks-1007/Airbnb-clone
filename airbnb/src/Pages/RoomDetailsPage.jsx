@@ -9,6 +9,7 @@ import { AmenityDetails } from "../Components/RoomDetails/AmenityDetails"
 import { Calendar } from "../Components/RoomDetails/Calendar"
 import { Reviews } from "../Components/RoomDetails/Reviews"
 import { HostDetails } from "../Components/RoomDetails/HostDetails"
+import { ThingsToKnow } from "../Components/RoomDetails/ThingsToKnow"
 const useStyle = makeStyles({
   pink_icon: {
     color: "rgb(239,78,89)",
@@ -97,6 +98,7 @@ export function RoomDetailsPage({
         <Divider />
         <HostDetails />
         <Divider />
+        <ThingsToKnow />
       </Container>
     </>
   )
