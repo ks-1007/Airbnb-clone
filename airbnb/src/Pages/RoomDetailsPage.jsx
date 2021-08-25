@@ -1,13 +1,14 @@
 import Star from "@material-ui/icons/Star"
 import styled from "styled-components"
 import FiberManualRecordSharpIcon from "@material-ui/icons/FiberManualRecordSharp"
-import { Container, makeStyles } from "@material-ui/core"
+import { Container, Divider, makeStyles } from "@material-ui/core"
 import { IoShareOutline } from "react-icons/io5"
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 import { RoomImages } from "../Components/RoomDetails/RoomImages"
 import { AmenityDetails } from "../Components/RoomDetails/AmenityDetails"
 import { Calendar } from "../Components/RoomDetails/Calendar"
 import { Reviews } from "../Components/RoomDetails/Reviews"
+import { HostDetails } from "../Components/RoomDetails/HostDetails"
 const useStyle = makeStyles({
   pink_icon: {
     color: "rgb(239,78,89)",
@@ -93,6 +94,9 @@ export function RoomDetailsPage({
         <AmenityDetails description={description} roomTypes={roomTypes} />
         {/* <Calendar /> */}
         <Reviews starRating={starRating} />
+        <Divider />
+        <HostDetails />
+        <Divider />
       </Container>
     </>
   )

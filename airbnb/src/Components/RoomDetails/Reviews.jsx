@@ -1,10 +1,11 @@
-import { Avatar, Box, makeStyles } from "@material-ui/core"
+import { Avatar, Box, Button, Divider, makeStyles } from "@material-ui/core"
 import Star from "@material-ui/icons/Star"
 import RatingBar from "./RatingBar"
 
 const useStyle = makeStyles((theme) => ({
   root: {
     textAlign: "left",
+    padding: "40px 0",
   },
   margin5: {
     margin: "5px",
@@ -47,6 +48,13 @@ const useStyle = makeStyles((theme) => ({
     height: theme.spacing(8),
     marginRight: "15px",
   },
+  button: {
+    marginTop: "60px",
+    border: "1px solid black",
+    height: "50px",
+    borderRadius: "10px",
+    width: "200px",
+  },
 }))
 export function Reviews({ starRating }) {
   const classes = useStyle()
@@ -60,41 +68,41 @@ export function Reviews({ starRating }) {
         <Box className={classes.rating}>
           <p style={{ fontSize: "20px" }}>Cleanliness</p>
           <Box className={classes.bar}>
-            <RatingBar /> <p>4.6</p>
+            <RatingBar rating={4.6} /> <p>4.6</p>
           </Box>
         </Box>
         <Box className={classes.rating}>
           <p style={{ fontSize: "20px" }}>Accuracy</p>
           <Box className={classes.bar}>
-            <RatingBar />
+            <RatingBar rating={4.9} />
             <p>4.9</p>
           </Box>
         </Box>
         <Box className={classes.rating}>
           <p style={{ fontSize: "20px" }}>Communication</p>
           <Box className={classes.bar}>
-            <RatingBar />
+            <RatingBar rating={4.8} />
             <p>4.8</p>
           </Box>
         </Box>
         <Box className={classes.rating}>
           <p style={{ fontSize: "20px" }}>Location</p>
           <Box className={classes.bar}>
-            <RatingBar />
+            <RatingBar rating={4.7} />
             <p>4.7</p>
           </Box>
         </Box>
         <Box className={classes.rating}>
           <p style={{ fontSize: "20px" }}>Check-in</p>
           <Box className={classes.bar}>
-            <RatingBar />
+            <RatingBar rating={4.2} />
             <p>4.2</p>
           </Box>
         </Box>
         <Box className={classes.rating}>
           <p style={{ fontSize: "20px" }}>Value</p>
           <Box className={classes.bar}>
-            <RatingBar />
+            <RatingBar rating={4.5} />
             <p>4.5</p>
           </Box>
         </Box>
@@ -197,6 +205,7 @@ export function Reviews({ starRating }) {
           </Box>
         </Box>
       </Box>
+      <Button className={classes.button}>Show all 35 reviews</Button>
     </Box>
   )
 }

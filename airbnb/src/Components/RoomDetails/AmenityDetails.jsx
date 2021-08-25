@@ -1,4 +1,4 @@
-import { Avatar, Box, Divider, makeStyles } from "@material-ui/core"
+import { Avatar, Box, Button, Divider, makeStyles } from "@material-ui/core"
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined"
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom"
 import { BiSprayCan } from "react-icons/bi"
@@ -64,6 +64,14 @@ const useStyle = makeStyles((theme) => ({
   iconSize2: {
     fontSize: "35px",
     marginRight: "10px",
+  },
+  button: {
+    marginTop: "20px",
+    marginBottom: "50px",
+    border: "1px solid black",
+    height: "55px",
+    borderRadius: "10px",
+    width: "230px",
   },
 }))
 
@@ -186,6 +194,7 @@ export function AmenityDetails({ description, roomTypes }) {
             <p style={{ fontSize: "20px" }}>Air conditioning </p>
           </Box>
         </Box>
+        <Button className={classes.button}>Show all 36 amenities</Button>
       </Box>
       <Divider />
     </Box>
