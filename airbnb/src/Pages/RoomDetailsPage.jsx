@@ -61,6 +61,7 @@ export function RoomDetailsPage() {
               </div>
               <div style={{display:"flex", alignItems:"center", justifyContent:"space-around", width:"145px"}}><IoShareOutline/> <span style={{textDecoration:"underline"}}>Share</span>  <FavoriteBorderIcon/> <span style={{textDecoration:"underline"}}>Save</span> </div>
             </div>
+            <div></div>
           </div>
         </NameCont>
       </Container>
