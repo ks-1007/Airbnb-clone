@@ -3,7 +3,7 @@ export function RoomImages() {
     <div
       style={{
         border: "2px solid black",
-        borderRadius: "5px",
+        borderRadius: "10px",
         height: "350px",
       }}
     ></div>

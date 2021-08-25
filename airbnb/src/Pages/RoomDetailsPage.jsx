@@ -6,6 +6,8 @@ import { IoShareOutline } from "react-icons/io5"
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 import { RoomImages } from "../Components/RoomDetails/RoomImages"
 import { AmenityDetails } from "../Components/RoomDetails/AmenityDetails"
+import { Calendar } from "../Components/RoomDetails/Calendar"
+import { Reviews } from "../Components/RoomDetails/Reviews"
 const useStyle = makeStyles({
   pink_icon: {
     color: "rgb(239,78,89)",
@@ -31,7 +33,6 @@ const NameCont = styled.div`
     }
   }
 `
-const ImageCont = styled.div``
 
 export function RoomDetailsPage({
   name,
@@ -90,6 +91,8 @@ export function RoomDetailsPage({
 
         <RoomImages />
         <AmenityDetails description={description} roomTypes={roomTypes} />
+        {/* <Calendar /> */}
+        <Reviews starRating={starRating} />
       </Container>
     </>
   )
