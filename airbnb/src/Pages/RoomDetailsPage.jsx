@@ -59,7 +59,7 @@ export function RoomDetailsPage() {
                   <p> Anjuna, Goa, India</p>
                 </div>
               </div>
-              <div style={{display:"flex", alignItems:"center", justifyContent:"space-around", width:"150px"}}><IoShareOutline/> <span style={{textDecoration:"underline"}}>Share</span>  <FavoriteBorderIcon/> <span style={{textDecoration:"underline"}}>Save</span> </div>
+              <div style={{display:"flex", alignItems:"center", justifyContent:"space-around", width:"145px"}}><IoShareOutline/> <span style={{textDecoration:"underline"}}>Share</span>  <FavoriteBorderIcon/> <span style={{textDecoration:"underline"}}>Save</span> </div>
             </div>
           </div>
         </NameCont>
