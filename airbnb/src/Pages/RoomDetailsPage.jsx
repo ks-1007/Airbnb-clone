@@ -20,7 +20,7 @@ const NameCont = styled.div`
         display: flex;
       align-items: center;
       justify-content: space-around;
-      width: 430px;
+      
       }
       & > div:nth-of-type(1)>div {
         display: flex;
@@ -30,38 +30,43 @@ const NameCont = styled.div`
     }
   }
 `;
-export function RoomDetailsPage() {
+export function RoomDetailsPage({name,starRating, address}) {
   const classes = useStyle();
   return (
     <>
       <Container>
         <NameCont>
           <div>
-            <h2>Xavier's Guest House Standard Classic Room</h2>
+            <h2>{name}</h2>
             <div>
               <div>
                 <div>
                   <Star className={classes.pink_icon} />
-                  4.85{" "}
+                  {starRating}{" "}
                   <span style={{ color: "grey", textDecoration: "underline" }}>
                     {" "}
+                    &nbsp;
                     (150 reviews){" "}
                   </span>
                 </div>{" "}
+                &nbsp;
                 .
+                &nbsp;
                 <div>
                   <FiberManualRecordSharpIcon className={classes.pink_icon} />{" "}
                   <span style={{ color: "grey" }}> Superhost </span>
                 </div>{" "}
+                &nbsp;
                 .
+                &nbsp;
                 <div style={{ color: "grey", textDecoration: "underline" }}>
                   {" "}
-                  <p> Anjuna, Goa, India</p>
+                  <p> {address.line1}, {address.city}, {address.countryName}</p>
                 </div>
               </div>
               <div style={{display:"flex", alignItems:"center", justifyContent:"space-around", width:"145px"}}><IoShareOutline/> <span style={{textDecoration:"underline"}}>Share</span>  <FavoriteBorderIcon/> <span style={{textDecoration:"underline"}}>Save</span> </div>
             </div>
-            <div></div>
+            
           </div>
         </NameCont>
       </Container>
