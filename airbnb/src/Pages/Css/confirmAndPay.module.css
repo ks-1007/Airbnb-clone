@@ -1,0 +1,370 @@
+@import url('http://fonts.cdnfonts.com/css/circular-std-book');
+
+.main_container{
+    font-family: 'Circular Std Bold', sans-serif;
+    
+}
+.Cnp_container{
+     
+      font-family: 'Circular Std Bold', sans-serif;
+      margin-left: auto;
+      margin-right: auto;
+}
+
+.Cnp_box {
+    -webkit-box-pack: start !important;
+    -webkit-box-align: stretch !important;
+    display: flex !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    padding-left: 24px !important;
+    padding-right: 24px!important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+@media (min-width: 375px)
+{.Cnp_box {
+    padding-left: 24px!important;
+    padding-right: 24px !important;
+}}
+
+@media (min-width: 744px)
+{.Cnp_box {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}}
+
+@media (min-width: 950px)
+{.Cnp_box {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}}
+
+@media (min-width: 1128px)
+{.Cnp_box {
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+}}
+
+@media (min-width: 1440px)
+{.Cnp_box {
+    max-width: none !important;
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+}}
+
+
+.Cnp_outerbox{
+    max-width: 1128px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.Cnp_innerbox{
+    -webkit-box-align: center !important;
+    -webkit-box-direction: normal !important;
+    -webkit-box-orient: horizontal !important;
+    padding-top: 64px !important;
+    padding-bottom: 16px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+}
+
+.Cnp_arrow{
+    padding-right: 32px !important;
+}
+
+.Cnp_link {
+    appearance: none !important;
+    display: inline-block !important;
+    border-radius: 50% !important;
+    border: none !important;
+    outline: none !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    color: rgb(34, 34, 34) !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+    position: relative !important;
+    background: transparent !important;
+    transition: -ms-transform 0.25s ease 0s, -webkit-transform 0.25s ease 0s, transform 0.25s ease 0s !important;
+    text-decoration: none
+}
+
+.Cnp_link:active{
+    color: rgb(0, 0, 0) !important;
+    transform: scale(0.92) !important;
+}
+
+.Cnp_link:active::before {
+    background: rgb(247, 247, 247) !important;
+}
+
+.Cnp_link:hover::before{
+    color: rgb(0, 0, 0) !important;
+    background: rgb(247, 247, 247) !important;
+}
+
+.Cnp_link::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+}
+
+.svgbox{
+    position: relative !important;
+}
+
+.svg{
+    display: block;
+    fill: none;
+    height: 16px;
+    width: 16px;
+    stroke: currentcolor;
+    stroke-width: 3;
+    overflow: visible;
+}
+
+.tagLine{
+    color: inherit !important;
+    font-size: 1em !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.tagLineContainer{
+    font-size: 32px !important;
+    line-height: 36px !important;
+    font-weight: 800 !important;
+}
+
+.detailsBox{
+    
+        -webkit-box-pack: start !important;
+        -webkit-box-align: stretch !important;
+        display: flex !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        flex-wrap: wrap !important;
+        width: 100% !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    
+}
+
+@media (min-width: 375px)
+{.detailsBox {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+}}
+
+@media (min-width: 744px)
+{.detailsBox  {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}}
+
+@media (min-width: 950px)
+{.detailsBox {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}}
+
+@media (min-width: 1128px)
+{.detailsBox {
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+    max-width: 1280px !important;
+}}
+
+@media (min-width: 1440px)
+{.detailsBox {
+    max-width: 1280px !important;
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+}}
+
+.tripDetailsBox {
+    position: relative !important;
+    width: 50% !important;
+    margin-left: 0% !important;
+    margin-right: 0% !important;
+}
+
+.tripDetailsBoldName {
+    font-size: 18px !important;
+    line-height: 24px !important;
+    font-weight: 800 !important;
+}
+
+@media (min-width: 744px)
+{.tripDetailsBoldName {
+    font-size: 22px !important;
+    line-height: 26px !important;
+}}
+
+.tripDetailsBoldNamewithDetails{
+    -webkit-box-align: baseline !important;
+    -webkit-box-pack: justify !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+}
+
+.tripDetailsBoldName_Details_TagLine {
+    padding-right: 24px !important;
+    overflow: hidden !important;
+}
+
+.tripDetailsBoldName_Details_TagLineDetails{
+    font-weight: 800 !important;
+}
+
+.TagDetails{
+
+    margin-top: 8px !important;
+    color: rgb(113, 113, 113) !important;
+    white-space: pre-wrap !important;
+}
+
+.TagDetails1{
+    color: rgb(113, 113, 113) !important;
+    white-space: pre-wrap !important;
+}
+
+.button_underline{
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-style: inherit !important;
+    font-variant: inherit !important;
+    line-height: inherit !important;
+    appearance: none !important;
+    background: transparent !important;
+    border: 0px !important;
+    cursor: pointer !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    user-select: auto !important;
+    color: rgb(34, 34, 34) !important;
+    text-decoration: underline !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+    outline: none !important;
+}
+
+.lineBreaker{
+    border-top-width: 1px !important;
+    border-top-style: solid !important;
+    border-top-color: rgb(221, 221, 221);
+}
+
+.workTrip{
+    
+        -webkit-box-align: center !important;
+        -webkit-box-pack: justify !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    
+}
+
+.NoteButton{
+    cursor: pointer !important;
+    display: inline-block !important;
+    margin: 0px !important;
+    position: relative !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    width: auto !important;
+    touch-action: manipulation !important;
+    font-family: Circular, sans-serif !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    outline: none !important;
+    padding: 7px 15px !important;
+    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s !important;
+    -webkit-tap-highlight-color: transparent !important;
+    border-color: rgb(34, 34, 34) !important;
+    background: rgb(255, 255, 255) !important;
+    color: rgb(34, 34, 34) !important;
+}
+
+.NoteButton:hover{
+    border-color: rgb(0, 0, 0) !important;
+    background: rgb(247, 247, 247) !important;
+    color: rgb(34, 34, 34) !important;
+}
+.NoteButton:active {
+    transform: scale(0.96) !important;
+    border-color: rgb(0, 0, 0) !important;
+    background: rgb(247, 247, 247) !important;
+    color: rgb(34, 34, 34) !important;
+}
+
+.playwith{
+
+    display: flex !important;
+    margin-bottom: 24px !important;
+}
+
+@media (min-width: 1128px)
+{.playwith {
+    margin-bottom: 40px !important;
+}}
+
+
+.payment_option_selector{
+    background: transparent !important;
+    border: 0px !important;
+    cursor: pointer !important;
+    padding: 0px !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+}
+
+.payment_option_selector_container {
+    color: rgb(34, 34, 34) !important;
+    font-weight: 600 !important;
+    margin-right: 24px !important;
+    font-size: 22px !important;
+    line-height: 26px !important;
+    margin-bottom: 4px !important;
+}
+
+.paymentCards{
+    -webkit-box-align: center !important;
+    -webkit-box-pack: end !important;
+    flex: 1 1 0% !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+}
+
+.paymentCard{
+    margin-right: 6px !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+.creditOrDebit_container {
+    position: relative !important;
+}
