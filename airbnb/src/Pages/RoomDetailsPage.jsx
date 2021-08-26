@@ -9,6 +9,7 @@ import { AmenityDetails } from "../Components/RoomDetails/AmenityDetails"
 import { Reviews } from "../Components/RoomDetails/Reviews"
 import { HostDetails } from "../Components/RoomDetails/HostDetails"
 import { ThingsToKnow } from "../Components/RoomDetails/ThingsToKnow"
+import { Calendars } from "../Components/RoomDetails/Calendar"
 const useStyle = makeStyles({
   pink_icon: {
     color: "rgb(239,78,89)",
@@ -81,7 +82,7 @@ export function RoomDetailsPage({
                   width: "145px",
                 }}
               >
-                <IoShareOutline />{" "}
+                <IoShareOutline style={{ fontSize: "20px" }} />{" "}
                 <span style={{ textDecoration: "underline" }}>Share</span>{" "}
                 <FavoriteBorderIcon />{" "}
                 <span style={{ textDecoration: "underline" }}>Save</span>{" "}
@@ -92,7 +93,8 @@ export function RoomDetailsPage({
 
         <RoomImages {...roomTypes[0]} />
         <AmenityDetails description={description} roomTypes={roomTypes} />
-        {/* <Calendar /> */}
+        <Calendars />
+        <Divider />
         <Reviews starRating={starRating} />
         <Divider />
         <HostDetails />

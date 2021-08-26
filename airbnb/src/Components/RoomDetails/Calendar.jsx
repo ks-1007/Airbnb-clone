@@ -6,34 +6,62 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from "@material-ui/pickers"
+import { Box } from "@material-ui/core"
 
-export function Calendar() {
+export function Calendars() {
   // The first commit of Material-UI
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date("2014-08-18T21:11:54")
+  const [selectedCheckInDate, setSelectedCheckInDate] = React.useState(
+    new Date("2021-08-26T21:11:54")
+  )
+  const [selectedCheckOutDate, setSelectedCheckOutDate] = React.useState(
+    new Date("2021-08-26T21:11:54")
   )
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date)
+  const handleCheckInDateChange = (date) => {
+    setSelectedCheckInDate(date)
+  }
+  const handleCheckOutDateChange = (date) => {
+    setSelectedCheckOutDate(date)
   }
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid container justifyContent="space-around">
+      <h2 style={{ textAlign: "left" }}>Select check-in and check-out date</h2>
+      <Box
+        style={{
+          display: "grid",
+          gridTemplateColumns: "25% 25%",
+          gap: "2%",
+          height: "100px",
+        }}
+      >
         <KeyboardDatePicker
           disableToolbar
           variant="inline"
           format="MM/dd/yyyy"
           margin="normal"
           id="date-picker-inline"
-          label="Date picker inline"
-          value={selectedDate}
-          onChange={handleDateChange}
+          label="Check-in date"
+          value={selectedCheckInDate}
+          onChange={handleCheckInDateChange}
           KeyboardButtonProps={{
             "aria-label": "change date",
           }}
         />
-      </Grid>
+        <KeyboardDatePicker
+          disableToolbar
+          variant="inline"
+          format="MM/dd/yyyy"
+          margin="normal"
+          id="date-picker-inline"
+          label="Check-out date"
+          value={selectedCheckOutDate}
+          onChange={handleCheckOutDateChange}
+          KeyboardButtonProps={{
+            "aria-label": "change date",
+          }}
+        />
+      </Box>
     </MuiPickersUtilsProvider>
   )
 }
