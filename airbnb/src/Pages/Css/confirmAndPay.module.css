@@ -139,7 +139,7 @@
 
 .tagLine{
     color: inherit !important;
-    font-size: 1em !important;
+    font-size: 1.05em !important;
     font-weight: inherit !important;
     line-height: inherit !important;
     margin: 0px !important;
@@ -237,13 +237,14 @@
 }
 
 .TagDetails{
-
+    font-family: 'Circular Std Book', sans-serif;
     margin-top: 8px !important;
     color: rgb(113, 113, 113) !important;
     white-space: pre-wrap !important;
 }
 
 .TagDetails1{
+    font-family: 'Circular Std Book', sans-serif;
     color: rgb(113, 113, 113) !important;
     white-space: pre-wrap !important;
 }
@@ -365,6 +366,237 @@
     -webkit-tap-highlight-color: transparent !important;
 }
 
-.creditOrDebit_container {
+
+.dropdownbtn{
+    display: block !important;
+    width: 100% !important;
+    background: rgb(255, 255, 255) !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    text-align: left !important;
+    outline: none !important;
+    border: 1px solid rgb(176, 176, 176) !important;
+    border-radius: 8px !important;
+}
+
+._1wcpnjd {
+    font-size: 16px !important;
+    line-height: 24px !important;
+    letter-spacing: normal !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    color: rgb(72, 72, 72) !important;
+    padding: 16px 40px 16px 16px !important;
+    font-weight: normal !important;
+    cursor: pointer !important;
+    display: block !important;
     position: relative !important;
+    text-align: left !important;
+    width: 100% !important;
+    overflow-wrap: break-word !important;
+}
+
+._hgs47m {
+    display: table !important;
+    width: 100% !important;
+    border-spacing: 0px !important;
+}
+
+._ni9axhe {
+    display: table-cell !important;
+    vertical-align: middle !important;
+}
+
+._18k2iy {
+    float: left !important;
+    margin-top: -9px !important;
+    height: 24px !important;
+}
+
+._10ejfg4u {
+    display: table-cell !important;
+    width: 100% !important;
+    vertical-align: middle !important;
+}
+
+._qcdbez {
+    pointer-events: none !important;
+    position: absolute !important;
+    top: 0px !important;
+    right: 20px !important;
+    height: 100% !important;
+}
+
+._nncr1bm {
+    display: table !important;
+    position: relative !important;
+    height: 100% !important;
+}
+
+._wn4bip {
+    display: table-cell !important;
+    vertical-align: middle !important;
+    transition-property: -ms-transform, -webkit-transform, transform !important;
+    transition-duration: 250ms !important;
+    transition-timing-function: ease-in-out !important;
+}
+
+._xxdpmjq {
+    display: block !important;
+    width: 100% !important;
+    background: rgb(255, 255, 255) !important;
+    border: 1px solid rgb(176, 176, 176) !important;
+    border-radius: 8px !important;
+    position: absolute !important;
+    z-index: 2 !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    box-shadow: rgb(0 0 0 / 5%) 0px 3px 9px 3px !important;
+    list-style: none !important;
+    overflow-y: scroll !important;
+    top: 4px !important;
+}
+
+._1gyjybc {
+    padding: 0px !important;
+}
+
+._16kbejea {
+    font-size: 16px !important;
+    line-height: 24px !important;
+    letter-spacing: normal !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    color: rgb(72, 72, 72) !important;
+    padding: 16px 40px 16px 16px !important;
+    font-weight: normal !important;
+    cursor: pointer !important;
+    display: block !important;
+    position: relative !important;
+    text-align: left !important;
+    width: 100% !important;
+    overflow-wrap: break-word !important;
+    background-color: rgb(242, 242, 242) !important;
+}
+
+._1c5gin1 {
+    pointer-events: none !important;
+    position: absolute !important;
+    top: 0px !important;
+    right: 4px !important;
+    height: 100% !important;
+}
+
+._czm8crp {
+    margin: 0px !important;
+    overflow-wrap: break-word !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.375em !important;
+    color: rgb(72, 72, 72) !important;
+}
+
+.covid{
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.button_confirm_and_pay{
+
+    cursor: pointer !important;
+    display: inline-block !important;
+    margin: 0px !important;
+    position: relative !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    width: auto !important;
+    touch-action: manipulation !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    outline: none !important;
+    padding: 14px 24px !important;
+    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s !important;
+    -webkit-tap-highlight-color: transparent !important;
+    border: none !important;
+    background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+.button_confirm_and_pay:active {
+    transform: scale(0.94)  !important;
+    border: none !important;
+    background: rgb(255, 56, 92) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+
+.button_confirm_and_pay:disabled {
+    cursor: not-allowed !important;
+    opacity: 1 !important;
+    border: none !important;
+    background: rgb(176, 176, 176) !important;
+    color: rgb(255, 255, 255) !important;
+}
+._163rr5i {
+    position: absolute !important;
+    top: 0px !important;
+    left: 0px !important;
+    right: 0px !important;
+    bottom: 0px !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    border-radius: 8px !important;
+}
+
+.mouseaction{
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 200px !important;
+    background-size: 200% 200% !important;
+    opacity: 0 !important;
+    transition: opacity 1.25s ease-in-out 0s !important;
+    background-image: radial-gradient(circle at center center, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%) !important;
+}
+
+
+.mouseaction:active {
+    transition: -ms-transform 2s ease-in-out 2s, -webkit-transform 2s ease-in-out 2s, transform 2s ease-in-out 2s, opacity 2s ease-in-out 2s !important;
+    opacity: 0 !important;
+    transform: scale(5) !important;
+    filter:brightness(1.5)
+}
+
+.mouseaction:hover{
+    opacity: 1 !important;
+}
+
+
+._tcp689 {
+    display: block !important;
+    position: relative !important;
+    pointer-events: none !important;
+}
+
+._14d5b3i {
+    -webkit-box-pack: center !important;
+    -webkit-box-align: center !important;
+    -webkit-box-direction: normal !important;
+    -webkit-box-orient: horizontal !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    pointer-events: none !important;
+}
+
+
+.priceDetailsBox{
+    position: relative !important;
+    width: 41.6667% !important;
+    margin-left: 8.33333% !important;
+    margin-right: 0% !important;
 }
