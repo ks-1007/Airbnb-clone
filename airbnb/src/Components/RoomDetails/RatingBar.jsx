@@ -16,7 +16,11 @@ export default function RatingBar({ rating }) {
 
   return (
     <div className={classes.root}>
-      <LinearProgress variant="determinate" value={rating * 2 * 10} />
+      <LinearProgress
+        className={classes.bar}
+        variant="determinate"
+        value={rating * 2 * 10}
+      />
     </div>
   )
 }

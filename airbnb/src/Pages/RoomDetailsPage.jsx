@@ -6,7 +6,6 @@ import { IoShareOutline } from "react-icons/io5"
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 import { RoomImages } from "../Components/RoomDetails/RoomImages"
 import { AmenityDetails } from "../Components/RoomDetails/AmenityDetails"
-import { Calendar } from "../Components/RoomDetails/Calendar"
 import { Reviews } from "../Components/RoomDetails/Reviews"
 import { HostDetails } from "../Components/RoomDetails/HostDetails"
 import { ThingsToKnow } from "../Components/RoomDetails/ThingsToKnow"
@@ -91,7 +90,7 @@ export function RoomDetailsPage({
           </div>
         </NameCont>
 
-        <RoomImages />
+        <RoomImages {...roomTypes[0]} />
         <AmenityDetails description={description} roomTypes={roomTypes} />
         {/* <Calendar /> */}
         <Reviews starRating={starRating} />
