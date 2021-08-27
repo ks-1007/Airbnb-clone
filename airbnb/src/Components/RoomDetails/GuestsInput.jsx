@@ -51,6 +51,8 @@ export function GuestInput() {
   }))
   const classes = useStyles()
   const [adults, setAdults] = useState(1)
+  const [children, setChildren] = useState(0)
+  const [infants, setInfants] = useState(0)
   return (
     <>
       <Button
@@ -70,11 +72,17 @@ export function GuestInput() {
             <h3>Adults</h3>
           </Box>
           <Box className={classes.btnCont}>
-            <Box className={classes.btn}>
+            <Box
+              className={classes.btn}
+              onClick={() => setAdults((prev) => prev - 1)}
+            >
               <RemoveIcon />
             </Box>
             {adults}
-            <Box className={classes.btn}>
+            <Box
+              className={classes.btn}
+              onClick={() => setAdults((prev) => prev + 1)}
+            >
               <AddIcon />
             </Box>
           </Box>
@@ -84,25 +92,37 @@ export function GuestInput() {
             <h3>Children</h3>
           </Box>
           <Box className={classes.btnCont}>
-            <Box className={classes.btn}>
+            <Box
+              className={classes.btn}
+              onClick={() => setChildren((prev) => prev - 1)}
+            >
               <RemoveIcon />
             </Box>
-            {adults}
-            <Box className={classes.btn}>
+            {children}
+            <Box
+              className={classes.btn}
+              onClick={() => setChildren((prev) => prev + 1)}
+            >
               <AddIcon />
             </Box>
           </Box>
         </Box>
         <Box className={classes.option}>
           <Box>
-            <h3>Infant</h3>
+            <h3>Infants</h3>
           </Box>
           <Box className={classes.btnCont}>
-            <Box className={classes.btn}>
+            <Box
+              className={classes.btn}
+              onClick={() => setInfants((prev) => prev - 1)}
+            >
               <RemoveIcon />
             </Box>
-            {adults}
-            <Box className={classes.btn}>
+            {infants}
+            <Box
+              className={classes.btn}
+              onClick={() => setInfants((prev) => prev + 1)}
+            >
               <AddIcon />
             </Box>
           </Box>

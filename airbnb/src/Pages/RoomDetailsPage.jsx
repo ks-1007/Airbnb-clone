@@ -9,8 +9,13 @@ import { AmenityDetails } from "../Components/RoomDetails/AmenityDetails"
 import { Reviews } from "../Components/RoomDetails/Reviews"
 import { HostDetails } from "../Components/RoomDetails/HostDetails"
 import { ThingsToKnow } from "../Components/RoomDetails/ThingsToKnow"
-import { Calendars } from "../Components/RoomDetails/Calendar"
+import { Calendars } from "../Components/RoomDetails/Calendars"
+import { ScrollNavbar } from "../Components/RoomDetails/ScrollNavbar"
+import { useState } from "react"
 const useStyle = makeStyles({
+  root: {
+    postion: "relative",
+  },
   pink_icon: {
     color: "rgb(239,78,89)",
   },
@@ -43,12 +48,30 @@ export function RoomDetailsPage({
   description,
   roomTypes,
 }) {
+  const [showScrollNav, setShowScrollNav] = useState("none")
+  const [showScrollNavRight, setShowScrollNavRight] = useState("none")
   const classes = useStyle()
   name = name.replace("[SANDBOX]", "")
-
+  const handleScroll = (e) => {
+    if (window.pageYOffset >= 470) {
+      setShowScrollNav("flex")
+    } else {
+      setShowScrollNav("none")
+    }
+    if (window.pageYOffset >= 1895) {
+      setShowScrollNavRight("flex")
+    } else {
+      setShowScrollNavRight("none")
+    }
+  }
+  window.addEventListener("scroll", handleScroll)
   return (
     <>
-      <Container>
+      <ScrollNavbar
+        showScrollNav={showScrollNav}
+        showScrollNavRight={showScrollNavRight}
+      />
+      <Container className={classes.root}>
         <NameCont>
           <div>
             <h2>{name}</h2>

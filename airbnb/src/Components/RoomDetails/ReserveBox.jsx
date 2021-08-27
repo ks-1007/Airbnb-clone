@@ -1,6 +1,13 @@
 import { Box, Button } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core"
 import Star from "@material-ui/icons/Star"
+import "date-fns"
+import React from "react"
+import DateFnsUtils from "@date-io/date-fns"
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker,
+} from "@material-ui/pickers"
 import { GuestInput } from "./GuestsInput"
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -41,6 +48,19 @@ const useStyle = makeStyles((theme) => ({
 }))
 export function ReserveBox() {
   const classes = useStyle()
+  const [selectedCheckInDate, setSelectedCheckInDate] = React.useState(
+    new Date("2021-08-26T21:11:54")
+  )
+  const [selectedCheckOutDate, setSelectedCheckOutDate] = React.useState(
+    new Date("2021-08-26T21:11:54")
+  )
+
+  const handleCheckInDateChange = (date) => {
+    setSelectedCheckInDate(date)
+  }
+  const handleCheckOutDateChange = (date) => {
+    setSelectedCheckOutDate(date)
+  }
   return (
     <Box className={classes.root}>
       <Box className={classes.mainCont}>
@@ -67,18 +87,43 @@ export function ReserveBox() {
             style={{
               display: "flex",
               height: "50px",
-              justifyContent: "center",
+              justifyContent: "space-around",
               alignItems: "center",
             }}
           >
             <Box
               style={{
-                borderRight: "1px solid grey",
-                textAlign: "left",
+                // borderRight: "1px solid grey",
+
                 width: "150px",
               }}
             >
-              <p>check in</p>
+              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <Box
+                  style={
+                    {
+                      // display: "grid",
+                      // gridTemplateColumns: "25% 25%",
+                      // gap: "2%",
+                      // height: "100px",
+                    }
+                  }
+                >
+                  <KeyboardDatePicker
+                    disableToolbar
+                    variant="inline"
+                    format="MM/dd/yyyy"
+                    margin="normal"
+                    id="date-picker-inline"
+                    label="Check-in date"
+                    value={selectedCheckInDate}
+                    onChange={handleCheckInDateChange}
+                    KeyboardButtonProps={{
+                      "aria-label": "change date",
+                    }}
+                  />
+                </Box>
+              </MuiPickersUtilsProvider>
             </Box>
             <Box
               style={{
@@ -87,10 +132,35 @@ export function ReserveBox() {
               }}
             >
               {" "}
-              <p> check out </p>
+              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <Box
+                  style={
+                    {
+                      // display: "grid",
+                      // gridTemplateColumns: "25% 25%",
+                      // gap: "2%",
+                      // height: "100px",
+                    }
+                  }
+                >
+                  <KeyboardDatePicker
+                    disableToolbar
+                    variant="inline"
+                    format="MM/dd/yyyy"
+                    margin="normal"
+                    id="date-picker-inline"
+                    label="Check-out date"
+                    value={selectedCheckOutDate}
+                    onChange={handleCheckOutDateChange}
+                    KeyboardButtonProps={{
+                      "aria-label": "change date",
+                    }}
+                  />
+                </Box>
+              </MuiPickersUtilsProvider>
             </Box>
           </Box>
-          <Box style={{ borderTop: "1px solid grey" }}>
+          <Box /*style={{ borderTop: "1px solid grey" }}*/>
             <GuestInput />
           </Box>
         </Box>

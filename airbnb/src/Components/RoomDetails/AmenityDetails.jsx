@@ -12,7 +12,7 @@ import PetsOutlinedIcon from "@material-ui/icons/PetsOutlined"
 import TvOutlinedIcon from "@material-ui/icons/TvOutlined"
 import AcUnitOutlinedIcon from "@material-ui/icons/AcUnitOutlined"
 import { ReserveBox } from "./ReserveBox"
-import { Calendars } from "./Calendar"
+import { Calendars } from "./Calendars"
 const useStyle = makeStyles((theme) => ({
   root: {
     textAlign: "left",
@@ -143,7 +143,9 @@ export function AmenityDetails({ description, roomTypes }) {
             <Box>
               <img
                 className={classes.bedroomImage}
-                src={roomTypes[0].images[7].url}
+                src={
+                  "https://cdn.impala.travel/properties/cknecdfqd009w0uo52ekobr61.jpg"
+                }
                 alt=""
               />
               <h3 className={classes.marginZero}>Bedroom</h3>
@@ -154,7 +156,9 @@ export function AmenityDetails({ description, roomTypes }) {
             <Box>
               <img
                 className={classes.bedroomImage}
-                src={roomTypes[1].images[7].url}
+                src={
+                  "https://cdn.impala.travel/properties/ckneczyrb00bc0uo56bftb7l2.jpg"
+                }
                 alt=""
               />
               <h3 className={classes.marginZero}>Living room</h3>
@@ -201,7 +205,7 @@ export function AmenityDetails({ description, roomTypes }) {
           </Box>
           <Button className={classes.button}>Show all 36 amenities</Button>
         </Box>
-        <Calendars />
+        {/* <Calendars /> */}
       </Box>
       <Box>
         <ReserveBox />
