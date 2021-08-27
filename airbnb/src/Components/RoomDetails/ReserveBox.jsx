@@ -1,12 +1,13 @@
 import { Box, Button } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core"
 import Star from "@material-ui/icons/Star"
+import { GuestInput } from "./GuestsInput"
 const useStyle = makeStyles((theme) => ({
   root: {
-    height: "350px",
+    height: "400px",
     width: "400px",
     position: "sticky",
-    top: "200px",
+    top: "160px",
     marginTop: "50px",
   },
   flexDisplay1: {
@@ -35,6 +36,7 @@ const useStyle = makeStyles((theme) => ({
     width: "300px",
     height: "50px",
     borderRadius: "10px",
+    zIndex: "0",
   },
 }))
 export function ReserveBox() {
@@ -88,7 +90,9 @@ export function ReserveBox() {
               <p> check out </p>
             </Box>
           </Box>
-          <Box style={{ borderTop: "1px solid grey" }}>Guest</Box>
+          <Box style={{ borderTop: "1px solid grey" }}>
+            <GuestInput />
+          </Box>
         </Box>
         <Button variant="contained" color="secondary" className={classes.btn}>
           Check availability
