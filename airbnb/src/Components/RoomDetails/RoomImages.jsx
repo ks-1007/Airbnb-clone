@@ -3,6 +3,8 @@ import AppsIcon from "@material-ui/icons/Apps"
 import { useState } from "react"
 import { ExpandImg } from "./ExpandImg"
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos"
+import { IoShareOutline } from "react-icons/io5"
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 function rand() {
   return Math.round(Math.random() * 20) - 10
 }
@@ -76,6 +78,7 @@ const useStyle = makeStyles((theme) => ({
     position: "fixed",
     backgroundColor: "white",
     left: "10px",
+    top: "10px",
   },
 }))
 export function RoomImages({ images }) {
@@ -102,11 +105,22 @@ export function RoomImages({ images }) {
       >
         {
           <Box>
-            <Button
-              variant="contained"
-              onClick={handleClose}
-              className={classes.modalCloseBtn}
-            >
+            <Button onClick={handleClose} className={classes.modalCloseBtn}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-around",
+                  width: "145px",
+                  position: "fixed",
+                  right: "50px",
+                }}
+              >
+                <IoShareOutline style={{ fontSize: "20px" }} />{" "}
+                <span style={{ textDecoration: "underline" }}>Share</span>{" "}
+                <FavoriteBorderIcon />{" "}
+                <span style={{ textDecoration: "underline" }}>Save</span>{" "}
+              </div>
               <ArrowBackIosIcon />
             </Button>
             <ExpandImg images={images} />

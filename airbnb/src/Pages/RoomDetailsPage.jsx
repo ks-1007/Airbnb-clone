@@ -44,6 +44,8 @@ export function RoomDetailsPage({
   roomTypes,
 }) {
   const classes = useStyle()
+  name = name.replace("[SANDBOX]", "")
+
   return (
     <>
       <Container>
@@ -93,7 +95,7 @@ export function RoomDetailsPage({
 
         <RoomImages {...roomTypes[0]} />
         <AmenityDetails description={description} roomTypes={roomTypes} />
-        <Calendars />
+
         <Divider />
         <Reviews starRating={starRating} />
         <Divider />
