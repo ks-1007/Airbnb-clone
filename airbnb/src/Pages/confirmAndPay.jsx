@@ -4,6 +4,7 @@ import SlidingSwitch from "../Components/confirmAndPayComp/confirmAndPayButton";
 import styles from "./Css/confirmAndPay.module.css";
 import React, { useState } from "react";
 import { StickyBox } from "../Components/confirmAndPayComp/stickydiv";
+import { ConfirmAndPayFooter } from "../Components/confirmAndPayComp/confirmAndPayfooter";
 
 export const ConfirmAndPay = () => {
   const [state, setState] = useState({
@@ -223,7 +224,7 @@ export const ConfirmAndPay = () => {
                                     />
                                   </span>
                                 </span>
-                                <span className={styles.paymentCard}>
+                                <span>
                                   <span
                                     role="img"
                                     aria-label="American Express Card"
@@ -537,6 +538,7 @@ export const ConfirmAndPay = () => {
           </div>
         </div>
       </div>
+      <ConfirmAndPayFooter/>
     </>
   );
 };

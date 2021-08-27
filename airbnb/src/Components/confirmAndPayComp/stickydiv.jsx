@@ -1,4 +1,5 @@
 import styles from "./Css/stickydiv.module.css";
+
 export const StickyBox = () => {
   return (
     <>
@@ -105,7 +106,7 @@ export const StickyBox = () => {
             </div>
           </div>
           <div className={styles.lineBreaker}></div>
-          {/*price details div */}
+          {/*price details TagLine div */}
           <div
                         style={{ paddingTop: "24px", paddingBottom: "24px" }}
                       >
@@ -125,7 +126,41 @@ export const StickyBox = () => {
                           </section>
                        </div>
           </div>
-          {/*price details div */}
+          {/*price details TagLine div */}
+          {/*price details box*/}
+            <div>
+                 <div style={{marginTop:"0px"}}>
+                    <div className={styles.price_Information_Box}>
+                    <div className={styles.price_category_Box}><div className={styles.price_category_details }>₹1,450 x 14 nights</div></div>
+                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹20,300</span></span></div></div>
+                    </div>
+                 </div>
+                 <div style={{marginTop:"16px"}}>
+                    <div className={styles.price_Information_Box}>
+                    <div className={styles.price_category_Box}><div className={styles.price_category_details }>1% weekly price discount</div></div>
+                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span style={{color: "rgb(0, 160, 0)"}}>-₹203</span></span></div></div>
+                    </div>
+                 </div>
+                 <div style={{marginTop:"16px"}}>
+                    <div className={styles.price_Information_Box}>
+                    <div className={styles.price_category_Box}><div className={styles.price_category_details }>Service fee</div></div>
+                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹2,837.23</span></span></div></div>
+                    </div>
+                 </div>
+                 <div style={{marginTop:"16px"}}>
+                    <div className={styles.price_Information_Box}>
+                    <div className={styles.price_category_Box}><div className={styles.price_category_details }>Occupancy taxes and fees</div></div>
+                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹2,411.64</span></span></div></div>
+                    </div>
+                 </div>
+                 <div style={{marginTop:"16px"}}>
+                    <div className={styles.price_Information_Box}>
+                    <div className={styles.price_category_Box}><div className={styles.price_category_details }>Total(INR)</div></div>
+                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹25,345.87</span></span></div></div>
+                    </div>
+                 </div>
+            </div>
+          {/*price details box*/}
         </div>
       </div>
     </>
