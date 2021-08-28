@@ -1,7 +1,11 @@
 import { Paper, makeStyles, Box, Button } from "@material-ui/core"
 import Star from "@material-ui/icons/Star"
 
-export function ScrollNavbar({ showScrollNav, showScrollNavRight }) {
+export function ScrollNavbar({
+  showScrollNav,
+  showScrollNavRight,
+  starRating,
+}) {
   const useStyles = makeStyles((theme) => ({
     root: {
       display: showScrollNav,
@@ -73,7 +77,7 @@ export function ScrollNavbar({ showScrollNav, showScrollNavRight }) {
               justifyContent: "space-around",
             }}
           >
-            <Star style={{ color: "rgb(239,78,89)" }} /> 4.94.{" "}
+            <Star style={{ color: "rgb(239,78,89)" }} /> {starRating}.{" "}
             <span>137 reviews</span>
           </Box>
         </Box>

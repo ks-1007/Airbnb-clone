@@ -46,7 +46,7 @@ const useStyle = makeStyles((theme) => ({
     zIndex: "0",
   },
 }))
-export function ReserveBox() {
+export function ReserveBox({ starRating, price }) {
   const classes = useStyle()
   const [selectedCheckInDate, setSelectedCheckInDate] = React.useState(
     new Date("2021-08-26T21:11:54")
@@ -67,7 +67,7 @@ export function ReserveBox() {
         <Box className={classes.flexDisplay1}>
           <Box>
             <h2>
-              ₹1,799 <span>/ night</span>
+              ₹{price} <span>/ night</span>
             </h2>
           </Box>
           <Box
@@ -78,7 +78,7 @@ export function ReserveBox() {
               justifyContent: "space-around",
             }}
           >
-            <Star style={{ color: "rgb(239,78,89)" }} /> 4.94.{" "}
+            <Star style={{ color: "rgb(239,78,89)" }} /> {starRating + "."}{" "}
             <span>137 reviews</span>
           </Box>
         </Box>

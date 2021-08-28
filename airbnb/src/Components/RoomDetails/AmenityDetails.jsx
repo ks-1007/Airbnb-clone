@@ -77,9 +77,13 @@ const useStyle = makeStyles((theme) => ({
     borderRadius: "10px",
     width: "230px",
   },
+  avatarImg: {
+    width: "80px",
+    height: "80px",
+  },
 }))
 
-export function AmenityDetails({ description, roomTypes }) {
+export function AmenityDetails({ description, roomTypes, starRating, price }) {
   const classes = useStyle()
   return (
     <Box className={classes.root}>
@@ -90,7 +94,13 @@ export function AmenityDetails({ description, roomTypes }) {
             <p>4 guests · 1 bedroom · 1 bed · 1.5 bathrooms</p>
           </Box>
           <Box>
-            <Avatar className={classes.large}>h</Avatar>
+            <Avatar className={classes.large}>
+              <img
+                src="https://a0.muscache.com/im/pictures/user/d836199b-f22e-4627-86cd-fe94b1a1ad07.jpg?im_w=240"
+                alt=""
+                className={classes.avatarImg}
+              />
+            </Avatar>
           </Box>
         </Box>
         <Divider />
@@ -208,7 +218,7 @@ export function AmenityDetails({ description, roomTypes }) {
         {/* <Calendars /> */}
       </Box>
       <Box>
-        <ReserveBox />
+        <ReserveBox starRating={starRating} price={price} />
       </Box>
       <Divider />
     </Box>

@@ -45,6 +45,10 @@ const useStyle = makeStyles((theme) => ({
   iconYellow: {
     color: "rgb(255,180,0)",
   },
+  avatarImg: {
+    width: "65px",
+    height: "65px",
+  },
 }))
 export function HostDetails() {
   const classes = useStyle()
@@ -52,7 +56,13 @@ export function HostDetails() {
     <Box className={classes.root}>
       <Box>
         <Box className={classes.displayFlex}>
-          <Avatar className={classes.avatarStyle}>Ne</Avatar>
+          <Avatar className={classes.avatarStyle}>
+            <img
+              src="https://a0.muscache.com/im/pictures/user/d836199b-f22e-4627-86cd-fe94b1a1ad07.jpg?im_w=240"
+              alt=""
+              className={classes.avatarImg}
+            />
+          </Avatar>
           <Box>
             <h2 className={classes.marginLow}>Hosted by Neha</h2>
             <p className={classes.marginLow}>Joined in May 2019</p>
@@ -79,7 +89,13 @@ export function HostDetails() {
         <Box style={{ marginTop: "40px" }}>
           <h3>Co-hosts</h3>
           <Box className={classes.displayFlex}>
-            <Avatar className={classes.avatarStyleSmall}>Ed</Avatar>
+            <Avatar className={classes.avatarStyleSmall}>
+              <img
+                src="https://a0.muscache.com/im/pictures/user/565db52a-d73f-483c-b0d6-49938f59a1e6.jpg?im_w=240"
+                alt=""
+                className={classes.avatarImg}
+              />
+            </Avatar>
             <p>Edson</p>
           </Box>
           <h3>During your stay</h3>

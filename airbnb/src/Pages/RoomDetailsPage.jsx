@@ -9,7 +9,7 @@ import { AmenityDetails } from "../Components/RoomDetails/AmenityDetails"
 import { Reviews } from "../Components/RoomDetails/Reviews"
 import { HostDetails } from "../Components/RoomDetails/HostDetails"
 import { ThingsToKnow } from "../Components/RoomDetails/ThingsToKnow"
-import { Calendars } from "../Components/RoomDetails/Calendars"
+
 import { ScrollNavbar } from "../Components/RoomDetails/ScrollNavbar"
 import { useState } from "react"
 const useStyle = makeStyles({
@@ -47,6 +47,7 @@ export function RoomDetailsPage({
   address,
   description,
   roomTypes,
+  price,
 }) {
   const [showScrollNav, setShowScrollNav] = useState("none")
   const [showScrollNavRight, setShowScrollNavRight] = useState("none")
@@ -70,6 +71,7 @@ export function RoomDetailsPage({
       <ScrollNavbar
         showScrollNav={showScrollNav}
         showScrollNavRight={showScrollNavRight}
+        starRating={starRating}
       />
       <Container className={classes.root}>
         <NameCont>
@@ -117,7 +119,12 @@ export function RoomDetailsPage({
         </NameCont>
 
         <RoomImages {...roomTypes[0]} />
-        <AmenityDetails description={description} roomTypes={roomTypes} />
+        <AmenityDetails
+          description={description}
+          roomTypes={roomTypes}
+          starRating={starRating}
+          price={price}
+        />
 
         <Divider />
         <Reviews starRating={starRating} />
