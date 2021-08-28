@@ -1,0 +1,17 @@
+.loginIconBox {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid gray;
+  border-radius: 10px;
+  margin: 15px 0;
+  padding: 0 5px;
+}
+.loginIconBox > p {
+  margin-left: 100px;
+}
+.inputArea {
+  border: 2px solid gray;
+  border-radius: 10px;
+  padding: 0 5px;
+  outline: none;
+}
