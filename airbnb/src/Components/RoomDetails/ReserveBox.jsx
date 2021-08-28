@@ -10,6 +10,8 @@ import {
 } from "@material-ui/pickers"
 import { GuestInput } from "./GuestsInput"
 import { useHistory } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { setCheckIn, setCheckOut } from "../../Store/action"
 const useStyle = makeStyles((theme) => ({
   root: {
     height: "400px",
@@ -24,7 +26,8 @@ const useStyle = makeStyles((theme) => ({
     alignItems: "center",
   },
   mainCont: {
-    border: "1px solid grey",
+    border: " 1px solid rgb(221, 221, 221)",
+    boxShadow: " rgba(0, 0, 0, 0.24) 0px 3px 8px",
     borderRadius: "10px",
     height: "300px",
     width: "350px",
@@ -47,7 +50,7 @@ const useStyle = makeStyles((theme) => ({
     zIndex: "0",
   },
 }))
-export function ReserveBox({ starRating, price }) {
+export function ReserveBox({ starRating, price, hotelId }) {
   const classes = useStyle()
   const [selectedCheckInDate, setSelectedCheckInDate] = React.useState(
     new Date("2021-08-26T21:11:54")
@@ -55,16 +58,18 @@ export function ReserveBox({ starRating, price }) {
   const [selectedCheckOutDate, setSelectedCheckOutDate] = React.useState(
     new Date("2021-08-26T21:11:54")
   )
-
+  const dispatch = useDispatch()
   const handleCheckInDateChange = (date) => {
     setSelectedCheckInDate(date)
+    dispatch(setCheckIn(date))
   }
   const handleCheckOutDateChange = (date) => {
     setSelectedCheckOutDate(date)
+    dispatch(setCheckOut(date))
   }
   const history = useHistory()
   const handleClick = () => {
-    history.push("/payment")
+    history.push(`/payment/${hotelId}`)
   }
   return (
     <Box className={classes.root}>
@@ -165,7 +170,7 @@ export function ReserveBox({ starRating, price }) {
               </MuiPickersUtilsProvider>
             </Box>
           </Box>
-          <Box /*style={{ borderTop: "1px solid grey" }}*/>
+          <Box>
             <GuestInput />
           </Box>
         </Box>

@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button"
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft"
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight"
 import axios from "axios"
+import { Link } from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,11 +52,11 @@ function SearchResult({
   const [activeStep, setActiveStep] = React.useState(0)
   const maxSteps = images.splice[5]
 
-  const handleNext = () => {
+  const handleNext = (e) => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1)
   }
 
-  const handleBack = () => {
+  const handleBack = (e) => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1)
   }
   //////////////////////////////////////////////////////////////////////////
@@ -63,11 +64,20 @@ function SearchResult({
     <>
       <div id={id} className={styles.searchResult}>
         <div className={styles.imgContainer}>
-          <img
-            className={classes.img}
-            src={images[activeStep].url}
-            alt={images[activeStep].label}
-          />
+          <Link
+            key={id}
+            to={`/room/${id}`}
+            style={{
+              textDecoration: "none",
+              color: "black",
+            }}
+          >
+            <img
+              className={classes.img}
+              src={images[activeStep].url}
+              alt={images[activeStep].label}
+            />
+          </Link>
           <MobileStepper
             variant="dots"
             steps={5}
@@ -77,7 +87,7 @@ function SearchResult({
             nextButton={
               <Button
                 size="small"
-                onClick={handleNext}
+                onClick={(e) => handleNext(e)}
                 disabled={activeStep === 4}
               >
                 {/* Next */}
@@ -91,7 +101,7 @@ function SearchResult({
             backButton={
               <Button
                 size="small"
-                onClick={handleBack}
+                onClick={(e) => handleBack(e)}
                 disabled={activeStep === 0}
               >
                 {theme.direction === "rtl" ? (
@@ -105,39 +115,47 @@ function SearchResult({
           />
         </div>
 
-        <div className={styles.searchResult__info}>
-          <div className={styles.searchResult__infoTop}>
-            <div className={styles.searchResult__infoTopDescription}>
-              <p>{address.city}</p>
-              <h4>{name.replace("[SANDBOX]", "")}</h4>
-              <hr className={styles.searchResult__info_line} />
-              <p>{description}</p>
-            </div>
-            <p>
-              <IconButton onClick={() => handleLike(el, liked)}>
-                <FavoriteIcon
-                  data-testid="like-icon"
-                  style={liked ? { color: "red" } : undefined}
-                />
-              </IconButton>
-            </p>
-          </div>
-
-          <div className={styles.searchResult__infoBottom}>
-            <div className={styles.searchResult__stars}>
-              <StarIcon className={styles.searchResult__star} />
-              <div>
-                <strong>{starRating}</strong>
+        <Link
+          key={id}
+          to={`/room/${id}`}
+          style={{
+            textDecoration: "none",
+            color: "black",
+          }}
+        >
+          <div className={styles.searchResult__info}>
+            <div className={styles.searchResult__infoTop}>
+              <div className={styles.searchResult__infoTopDescription}>
+                <p>{address.city}</p>
+                <h4>{name.replace("[SANDBOX]", "")}</h4>
+                <hr className={styles.searchResult__info_line} />
+                <p>{description}</p>
               </div>
-              <p> ({review} reviews)</p>
-            </div>
-            <div className={styles.searchResults__price}>
               <p>
-                <b>₹{price} / </b>night
+                <IconButton onClick={() => handleLike(el, liked)}>
+                  <FavoriteIcon
+                    data-testid="like-icon"
+                    style={liked ? { color: "red" } : undefined}
+                  />
+                </IconButton>
               </p>
+            </div>{" "}
+            <div className={styles.searchResult__infoBottom}>
+              <div className={styles.searchResult__stars}>
+                <StarIcon className={styles.searchResult__star} />
+                <div>
+                  <strong>{starRating}</strong>
+                </div>
+                <p> ({review} reviews)</p>
+              </div>
+              <div className={styles.searchResults__price}>
+                <p>
+                  <b>₹{price} / </b>night
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     </>
   )

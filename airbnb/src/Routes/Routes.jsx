@@ -12,7 +12,7 @@ export function Routes() {
       <Route exact path="/room/:hotelId">
         <RoomDetailsPage />
       </Route>
-      <Route exact path="/payment">
+      <Route exact path="/payment/:hotelId">
         <ConfirmAndPay />
       </Route>
     </Switch>

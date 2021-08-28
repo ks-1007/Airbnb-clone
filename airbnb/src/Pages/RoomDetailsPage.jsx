@@ -87,6 +87,7 @@ export function RoomDetailsPage() {
         showScrollNav={showScrollNav}
         showScrollNavRight={showScrollNavRight}
         starRating={room.starRating}
+        hotelId={hotelId}
       />
       <Container className={classes.root}>
         <NameCont>
@@ -140,6 +141,7 @@ export function RoomDetailsPage() {
           roomTypes={room.roomTypes}
           starRating={room.starRating}
           price={room.price}
+          hotelId={hotelId}
         />
 
         <Divider />

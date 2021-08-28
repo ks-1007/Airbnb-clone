@@ -83,7 +83,13 @@ const useStyle = makeStyles((theme) => ({
   },
 }))
 
-export function AmenityDetails({ description, roomTypes, starRating, price }) {
+export function AmenityDetails({
+  description,
+  roomTypes,
+  starRating,
+  price,
+  hotelId,
+}) {
   const classes = useStyle()
   return (
     <Box className={classes.root}>
@@ -218,7 +224,7 @@ export function AmenityDetails({ description, roomTypes, starRating, price }) {
         {/* <Calendars /> */}
       </Box>
       <Box>
-        <ReserveBox starRating={starRating} price={price} />
+        <ReserveBox starRating={starRating} price={price} hotelId={hotelId} />
       </Box>
       <Divider />
     </Box>

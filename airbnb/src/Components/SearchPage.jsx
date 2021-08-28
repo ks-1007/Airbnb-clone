@@ -32,7 +32,6 @@ function SearchPage() {
   const [value, setValue] = React.useState([100, 5000])
   console.log(value)
   const [open, setOpen] = React.useState(false)
-  const dispatch = useDispatch()
 
   const getData = async () => {
     axios
@@ -126,21 +125,19 @@ function SearchPage() {
         <hr className={styles.searchPage__info_breakLine} />
       </div>
       {hotel.map((el) => (
-        <Link key={el.id} to={`/room/${el.id}`}>
-          <SearchResult
-            handleLike={handleLike}
-            el={el}
-            liked={el.liked}
-            id={el.id}
-            images={el.images}
-            address={el.address}
-            description={el.details}
-            name={el.name}
-            starRating={el.starRating}
-            price={el.price}
-            review={el.review}
-          />
-        </Link>
+        <SearchResult
+          handleLike={handleLike}
+          el={el}
+          liked={el.liked}
+          id={el.id}
+          images={el.images}
+          address={el.address}
+          description={el.details}
+          name={el.name}
+          starRating={el.starRating}
+          price={el.price}
+          review={el.review}
+        />
       ))}
     </div>
   )

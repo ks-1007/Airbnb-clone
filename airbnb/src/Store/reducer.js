@@ -35,7 +35,7 @@ export function reducer(state = initState, { type, payload }) {
     case SET_CHECKOUT:
       return {
         ...state,
-        checkIn: payload,
+        checkOut: payload,
       }
     case SET_GUESTS:
       return {
