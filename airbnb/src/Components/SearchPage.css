@@ -1,5 +1,13 @@
 .searchPage__info {
+  width: 55vw;
   padding: 20px;
+  text-align: left;
+  margin-left: 30px;
+}
+.searchPage__info_breakLine {
+  margin-top: 30px;
+  text-align: left;
+  border: 1px solid rgba(110, 106, 106, 0.705);
 }
 
 .searchPage__info > p {

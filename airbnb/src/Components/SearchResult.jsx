@@ -1,14 +1,14 @@
 import React from "react";
 import "./SearchResult.css";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import IconButton from "@material-ui/core/IconButton";
 import StarIcon from "@material-ui/icons/Star";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import MobileStepper from "@material-ui/core/MobileStepper";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,15 +34,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function SearchResult({
-  key,
+  el,
+  id,
   images,
   name,
-  reviews,
+  review,
   address,
   description,
   starRating,
   price,
-}) {
+  handleLike,
+  liked
+})
+{
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -56,9 +60,10 @@ function SearchResult({
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  return (
-    <div key={key} className="searchResult">
-      <div  >
+
+  return (<>
+    <div id={id} className="searchResult">          
+      <div className="imgContainer" >
           <img
             className={classes.img}
             src={images[activeStep].url}
@@ -84,19 +89,22 @@ function SearchResult({
       }
     />
       </div>
-
-      <FavoriteBorderIcon className="searchResult__heart" />
-
+      
       <div className="searchResult__info">
         <div className="searchResult__infoTop">
           <div className="searchResult__infoTopDescription">
             <p>{address.city}</p>
             <h4>{name.replace("[SANDBOX]", "")}</h4>
-            <p>____</p>
+            <hr className="searchResult__info_line " />
             <p>{description}</p>
           </div>
           <p>
-            <FavoriteBorderIcon className="searchResult__heart" />
+        <IconButton onClick={() => handleLike(el, liked)}>
+          <FavoriteIcon
+            data-testid="like-icon"
+            style={liked ? { color: "red" } : undefined}
+          />
+        </IconButton>
           </p>
         </div>
 
@@ -106,17 +114,17 @@ function SearchResult({
             <div>
               <strong>{starRating}</strong>
             </div>
-            <p>{reviews}</p>
+            <p> ({review} reviews)</p>
           </div>
           <div className="searchResults__price">
             <p>
-              <b>{price}</b>/night
+              <b>₹{price} / </b>night
             </p>
           </div>
         </div>
       </div>
     </div>
-  );
+  </>);
 }
 
 export default SearchResult;
