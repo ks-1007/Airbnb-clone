@@ -1,59 +1,59 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0
-}
-.Container{
-    display: none !important;
-}
-
-@media (min-width: 744px){
+/* * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+} */
 .Container {
-    display: block !important;
-}
+  display: none !important;
 }
 
-header{
-    height: 80px !important;
-    box-shadow: rgb(235 235 235) 0px 1px 0px !important;
-    padding-left: 24px !important;
+@media (min-width: 744px) {
+  .Container {
+    display: block !important;
+  }
+}
+
+header {
+  height: 80px !important;
+  box-shadow: rgb(235 235 235) 0px 1px 0px !important;
+  padding-left: 24px !important;
 }
 
 .logoLink {
-
-    -webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    outline: none !important;
-    -webkit-align-items: center !important;
-    align-items: center !important;
-    display: -webkit-inline-box !important;
-    display: -moz-inline-box !important;
-    display: -ms-inline-flexbox !important;
-    display: -webkit-inline-flex !important;
-    display: inline-flex !important;
-    height: 80px !important;
-    position: relative !important;
-    vertical-align: middle !important;
-    z-index: 1 !important;
-    color: #FF385C !important;
-    text-decoration: none !important;
+  -webkit-box-align: center !important;
+  -ms-flex-align: center !important;
+  outline: none !important;
+  -webkit-align-items: center !important;
+  align-items: center !important;
+  display: -webkit-inline-box !important;
+  display: -moz-inline-box !important;
+  display: -ms-inline-flexbox !important;
+  display: -webkit-inline-flex !important;
+  display: inline-flex !important;
+  height: 80px !important;
+  position: relative !important;
+  vertical-align: middle !important;
+  z-index: 1 !important;
+  color: #ff385c !important;
+  text-decoration: none !important;
 }
-
 
 .logoName {
-    display: none !important;
+  display: none !important;
 }
 
-@media (min-width: 1128px){
-    .logoName {
-        display: block !important;
-    }}
+@media (min-width: 1128px) {
+  .logoName {
+    display: block !important;
+  }
+}
 
 .onlyLogo {
-    display: block !important;
+  display: block !important;
 }
 
-@media (min-width: 1128px)
-{.onlyLogo {
+@media (min-width: 1128px) {
+  .onlyLogo {
     display: none !important;
-}}
+  }
+}

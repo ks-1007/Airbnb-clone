@@ -12,6 +12,9 @@ import { ThingsToKnow } from "../Components/RoomDetails/ThingsToKnow"
 
 import { ScrollNavbar } from "../Components/RoomDetails/ScrollNavbar"
 import { useState } from "react"
+import { useEffect } from "react"
+import axios from "axios"
+import { useParams } from "react-router-dom"
 const useStyle = makeStyles({
   root: {
     postion: "relative",
@@ -41,18 +44,27 @@ const NameCont = styled.div`
   }
 `
 
-export function RoomDetailsPage({
-  name,
-  starRating,
-  address,
-  description,
-  roomTypes,
-  price,
-}) {
+export function RoomDetailsPage() {
+  const { hotelId } = useParams()
+
   const [showScrollNav, setShowScrollNav] = useState("none")
   const [showScrollNavRight, setShowScrollNavRight] = useState("none")
   const classes = useStyle()
-  name = name.replace("[SANDBOX]", "")
+  const [room, setRoom] = useState(false)
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3050/data/${hotelId}`)
+
+      .then(({ data }) => {
+        setRoom(data)
+        console.log(room)
+      })
+      .catch((err) => {
+        console.log("err:", err)
+      })
+  }, [])
+
   const handleScroll = (e) => {
     if (window.pageYOffset >= 470) {
       setShowScrollNav("flex")
@@ -66,25 +78,28 @@ export function RoomDetailsPage({
     }
   }
   window.addEventListener("scroll", handleScroll)
-  return (
+
+  return !room ? (
+    <h1>...loading</h1>
+  ) : (
     <>
       <ScrollNavbar
         showScrollNav={showScrollNav}
         showScrollNavRight={showScrollNavRight}
-        starRating={starRating}
+        starRating={room.starRating}
       />
       <Container className={classes.root}>
         <NameCont>
           <div>
-            <h2>{name}</h2>
+            <h2>{room.name.replace("[SANDBOX]", "")}</h2>
             <div>
               <div>
                 <div>
                   <Star className={classes.pink_icon} />
-                  {starRating}{" "}
+                  {room.starRating}{" "}
                   <span style={{ color: "grey", textDecoration: "underline" }}>
                     {" "}
-                    &nbsp; (150 reviews){" "}
+                    &nbsp; {room.review} reviews{" "}
                   </span>
                 </div>{" "}
                 &nbsp; . &nbsp;
@@ -97,7 +112,8 @@ export function RoomDetailsPage({
                   {" "}
                   <p>
                     {" "}
-                    {address.line1}, {address.city}, {address.countryName}
+                    {room.address.line1}, {room.address.city},{" "}
+                    {room.address.countryName}
                   </p>
                 </div>
               </div>
@@ -118,16 +134,16 @@ export function RoomDetailsPage({
           </div>
         </NameCont>
 
-        <RoomImages {...roomTypes[0]} />
+        <RoomImages {...room.roomTypes[0]} />
         <AmenityDetails
-          description={description}
-          roomTypes={roomTypes}
-          starRating={starRating}
-          price={price}
+          description={room.description}
+          roomTypes={room.roomTypes}
+          starRating={room.starRating}
+          price={room.price}
         />
 
         <Divider />
-        <Reviews starRating={starRating} />
+        <Reviews starRating={room.starRating} />
         <Divider />
         <HostDetails />
         <Divider />

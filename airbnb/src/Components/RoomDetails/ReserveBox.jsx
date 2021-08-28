@@ -9,6 +9,7 @@ import {
   KeyboardDatePicker,
 } from "@material-ui/pickers"
 import { GuestInput } from "./GuestsInput"
+import { useHistory } from "react-router-dom"
 const useStyle = makeStyles((theme) => ({
   root: {
     height: "400px",
@@ -60,6 +61,10 @@ export function ReserveBox({ starRating, price }) {
   }
   const handleCheckOutDateChange = (date) => {
     setSelectedCheckOutDate(date)
+  }
+  const history = useHistory()
+  const handleClick = () => {
+    history.push("/payment")
   }
   return (
     <Box className={classes.root}>
@@ -164,7 +169,12 @@ export function ReserveBox({ starRating, price }) {
             <GuestInput />
           </Box>
         </Box>
-        <Button variant="contained" color="secondary" className={classes.btn}>
+        <Button
+          variant="contained"
+          color="secondary"
+          className={classes.btn}
+          onClick={handleClick}
+        >
           Check availability
         </Button>
       </Box>

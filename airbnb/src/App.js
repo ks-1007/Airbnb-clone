@@ -1,13 +1,14 @@
-import "./App.css";
-import SearchPage from "./Components/SearchPage";
+import "./App.css"
+import { Dummy } from "./Routes/dummy"
+import { Routes } from "./Routes/Routes"
 
 function App() {
-  const hotelData;
   return (
-    <div className="App">
-      <SearchPage />
+    <div>
+      <Routes />
+      {/* <Dummy /> */}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
