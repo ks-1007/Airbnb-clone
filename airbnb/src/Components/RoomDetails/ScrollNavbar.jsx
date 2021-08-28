@@ -1,10 +1,12 @@
 import { Paper, makeStyles, Box, Button } from "@material-ui/core"
 import Star from "@material-ui/icons/Star"
+import { useHistory } from "react-router-dom"
 
 export function ScrollNavbar({
   showScrollNav,
   showScrollNavRight,
   starRating,
+  hotelId,
 }) {
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -53,6 +55,10 @@ export function ScrollNavbar({
     },
   }))
   const classes = useStyles()
+  const history = useHistory()
+  const handleClick = () => {
+    history.push(`/payment/${hotelId}`)
+  }
   return (
     <Paper className={classes.root}>
       <Box className={classes.left}>
@@ -83,7 +89,12 @@ export function ScrollNavbar({
         </Box>
 
         <Box>
-          <Button variant="contained" color="secondary" className={classes.btn}>
+          <Button
+            variant="contained"
+            color="secondary"
+            className={classes.btn}
+            onClick={handleClick}
+          >
             Check availability
           </Button>
         </Box>

@@ -133,10 +133,10 @@ export function RoomImages({ images }) {
           <img src={images[0].url} alt="" className={classes.bigImg} />
         </Box>
         <Box className={classes.gridCont}>
-          <img className={classes.smallImg} src={images[1].url} alt="" />
-          <img className={classes.smallImg2} src={images[2].url} alt="" />
-          <img className={classes.smallImg} src={images[3].url} alt="" />
-          <img className={classes.smallImg3} src={images[4].url} alt="" />
+          <img className={classes.smallImg} src={images[1]?.url} alt="" />
+          <img className={classes.smallImg2} src={images[2]?.url} alt="" />
+          <img className={classes.smallImg} src={images[3]?.url} alt="" />
+          <img className={classes.smallImg3} src={images[4]?.url} alt="" />
         </Box>
         <Button
           className={classes.imgExpandBtn}

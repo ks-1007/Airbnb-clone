@@ -4,6 +4,8 @@ import AddIcon from "@material-ui/icons/Add"
 import RemoveIcon from "@material-ui/icons/Remove"
 import ExpandLessIcon from "@material-ui/icons/ExpandLess"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
+import { useDispatch } from "react-redux"
+import { setGuest } from "../../Store/action"
 export function GuestInput() {
   const [modalDisplay, setModalDisplay] = useState(false)
   const useStyles = makeStyles((theme) => ({
@@ -23,6 +25,7 @@ export function GuestInput() {
       zIndex: "3",
       display: modalDisplay ? "block" : "none",
       position: "absolute",
+      boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
     },
     btn: {
       width: "35px",
@@ -49,10 +52,15 @@ export function GuestInput() {
       fontSize: "40px",
     },
   }))
+  const dispatch = useDispatch()
   const classes = useStyles()
   const [adults, setAdults] = useState(1)
   const [children, setChildren] = useState(0)
   const [infants, setInfants] = useState(0)
+  const handleClose = () => {
+    dispatch(setGuest({ adults, children, infants }))
+    setModalDisplay(false)
+  }
   return (
     <>
       <Button
@@ -127,13 +135,14 @@ export function GuestInput() {
             </Box>
           </Box>
         </Box>
-        <p>
+
+        {/* <p>
           2 guests maximum. Infants don’t count toward the number of guests.
-        </p>
+        </p> */}
         <Box style={{ textAlign: "right" }}>
           <h3
             style={{ textDecoration: "underline", cursor: "pointer" }}
-            onClick={() => setModalDisplay(false)}
+            onClick={handleClose}
           >
             Close
           </h3>

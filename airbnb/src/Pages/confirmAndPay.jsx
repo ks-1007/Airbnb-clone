@@ -1,13 +1,23 @@
-import { ConfirmAndPayNavbar } from "../Components/confirmAndPayComp/confirmAndPayNavbar";
-import { NavLink } from "react-router-dom";
-import SlidingSwitch from "../Components/confirmAndPayComp/confirmAndPayButton";
-import styles from "./Css/confirmAndPay.module.css";
-import React, { useState } from "react";
-import { StickyBox } from "../Components/confirmAndPayComp/stickydiv";
-import { ConfirmAndPayFooter } from "../Components/confirmAndPayComp/confirmAndPayfooter";
-import TransitionModal from "../Components/confirmAndPayComp/modal";
+import { ConfirmAndPayNavbar } from "../Components/confirmAndPayComp/confirmAndPayNavbar"
+import { NavLink, useParams } from "react-router-dom"
+import SlidingSwitch from "../Components/confirmAndPayComp/confirmAndPayButton"
+import styles from "./Css/confirmAndPay.module.css"
+import React, { useState } from "react"
+import { StickyBox } from "../Components/confirmAndPayComp/stickydiv"
+import { ConfirmAndPayFooter } from "../Components/confirmAndPayComp/confirmAndPayfooter"
+import { useSelector } from "react-redux"
+import TransitionModal from "../Components/confirmAndPayComp/modal"
 
 export const ConfirmAndPay = () => {
+  const { guests, checkIn, checkOut } = useSelector((state) => ({
+    guests: state.guests,
+    checkIn: state.checkIn,
+    checkOut: state.checkOut,
+  }))
+  const { hotelId } = useParams()
+  console.log("hotelId:", hotelId)
+  console.log(guests, checkIn, checkOut)
+
   const [state, setState] = useState({
     checkedB: false,
   });
@@ -20,12 +30,12 @@ export const ConfirmAndPay = () => {
 
   }
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
+    setState({ ...state, [event.target.name]: event.target.checked })
+  }
 
   const handlePaymentCard = () => {
-    setPaymentCard(!paymentCard);
-  };
+    setPaymentCard(!paymentCard)
+  }
   return (
     <>
       <ConfirmAndPayNavbar />
@@ -523,9 +533,12 @@ export const ConfirmAndPay = () => {
                   {/*div for button details of confirm and pay */}
                   {/*div for button confirm and pay */}
                   <div>
-                    <button  disabled={paymentCard ? true : false} className={styles.button_confirm_and_pay}>
+                    <button
+                      disabled={paymentCard ? true : false}
+                      className={styles.button_confirm_and_pay}
+                    >
                       <span className={styles._163rr5i}>
-                        <span className={styles.mouseaction} ></span>
+                        <span className={styles.mouseaction}></span>
                       </span>
                       <span className={styles._tcp689}>
                         <span className={styles._14d5b3i}>
@@ -539,7 +552,7 @@ export const ConfirmAndPay = () => {
               </div>
             </div>
             <div className={styles.priceDetailsBox}>
-              <StickyBox/>
+              <StickyBox />
             </div>
           </div>
         </div>
@@ -550,5 +563,5 @@ export const ConfirmAndPay = () => {
         <button onClick={()=>setGuest(false)}>close</button>
       </TransitionModal>
     </>
-  );
-};
+  )
+}

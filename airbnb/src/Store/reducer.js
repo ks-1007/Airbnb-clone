@@ -1,21 +1,48 @@
-import { TOGGLE_LIKE } from "./actionType";
+import {
+  GET_HOTEL_LIST,
+  GET_ROOM,
+  SET_CHECKIN,
+  SET_CHECKOUT,
+  SET_GUESTS,
+} from "./actionType"
 
 const initState = {
-  hotelData: [],
-};
+  hotelList: [],
+  room: {},
+  checkIn: "",
+  checkOut: "",
+  guests: {},
+}
 
-export const reducerfunc = (state = initState, { type, payload }) => {
+export function reducer(state = initState, { type, payload }) {
   switch (type) {
-    case TOGGLE_LIKE: {
-      const newImage = state.image.map((img) =>
-        img.id === payload ? { ...img, liked: !img.liked } : img
-      );
+    case GET_HOTEL_LIST:
       return {
         ...state,
-        image: newImage,
-      };
-    }
+        hotelList: payload,
+      }
+    case GET_ROOM:
+      return {
+        ...state,
+        room: payload,
+      }
+    case SET_CHECKIN:
+      return {
+        ...state,
+        checkIn: payload,
+      }
+
+    case SET_CHECKOUT:
+      return {
+        ...state,
+        checkOut: payload,
+      }
+    case SET_GUESTS:
+      return {
+        ...state,
+        guests: payload,
+      }
     default:
-      return state;
+      return state
   }
-};
+}
