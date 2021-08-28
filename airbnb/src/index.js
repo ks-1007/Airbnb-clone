@@ -3,15 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter as Router} from 'react-router-dom'
-import { ConfirmAndPay } from './Pages/confirmAndPay';
-import SlidingSwitch from './Components/confirmAndPayComp/confirmAndPayButton';
 ReactDOM.render(
-  <Router>
   <React.StrictMode>
-    < ConfirmAndPay/>
-  </React.StrictMode>
-  </Router>,
+    < App/>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
