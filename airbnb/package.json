@@ -10,14 +10,24 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+<<<<<<< HEAD
     "date-fns": "^2.0.0-beta.5",
+=======
+    "axios": "^0.21.1",
+    "leaflet": "^1.7.1",
+>>>>>>> e052f14dbafec5b9219432c4627b63de8c2e8f9d
     "react": "^17.0.2",
     "react-date-range-calendar": "^0.1.14",
     "react-dom": "^17.0.2",
+<<<<<<< HEAD
     "react-icons": "^4.2.0",
+=======
+    "react-leaflet": "^3.2.1",
+>>>>>>> e052f14dbafec5b9219432c4627b63de8c2e8f9d
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-swipeable-views": "^0.14.0",
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
     "simple-react-calendar": "^2.2.8",
