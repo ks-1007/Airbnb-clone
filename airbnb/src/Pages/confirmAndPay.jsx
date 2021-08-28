@@ -5,14 +5,20 @@ import styles from "./Css/confirmAndPay.module.css";
 import React, { useState } from "react";
 import { StickyBox } from "../Components/confirmAndPayComp/stickydiv";
 import { ConfirmAndPayFooter } from "../Components/confirmAndPayComp/confirmAndPayfooter";
+import TransitionModal from "../Components/confirmAndPayComp/modal";
 
 export const ConfirmAndPay = () => {
   const [state, setState] = useState({
     checkedB: false,
   });
-
+  
   const [paymentCard, setPaymentCard] = useState(false);
+  const [guest,setGuest] = useState(false);
+  
+  const handleGuest = (e) => {
+    setGuest(e)
 
+  }
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
@@ -107,7 +113,7 @@ export const ConfirmAndPay = () => {
                           </div>
                           <div className={styles.TagDetails}>1 guest</div>
                         </div>
-                        <button className={styles.button_underline}>
+                        <button onClick={()=>handleGuest(true)} className={styles.button_underline}>
                           Edit
                         </button>
                       </div>
@@ -193,7 +199,7 @@ export const ConfirmAndPay = () => {
                             <div className={styles.playwith}>
                               <label
                                 className={styles.payment_option_selector}
-                                for="payment_option_selector"
+                                htmlFor="payment_option_selector"
                               >
                                 <div
                                   className={
@@ -249,7 +255,7 @@ export const ConfirmAndPay = () => {
                                 <div
                                   aria-disabled="false"
                                   id="dropdown-selector-payment_option_selector-input"
-                                  tabindex="-1"
+                                  tabIndex="-1"
                                   className={styles._1wcpnjd}
                                 >
                                   <div className={styles._hgs47m}>
@@ -305,7 +311,7 @@ export const ConfirmAndPay = () => {
                                       >
                                         <path
                                           d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z"
-                                          fill-rule="evenodd"
+                                          fillRule="evenodd"
                                         ></path>
                                       </svg>
                                     </div>
@@ -331,7 +337,7 @@ export const ConfirmAndPay = () => {
                                     aria-selected="true"
                                     aria-disabled="false"
                                     id="dropdown-selector-payment_option_selector-option-ADYEN_PAYU"
-                                    tabindex="-1"
+                                    tabIndex="-1"
                                     className={styles._16kbejea}
                                   >
                                     <div className={styles._hgs47m}>
@@ -368,14 +374,14 @@ export const ConfirmAndPay = () => {
                                               <svg
                                                 viewBox="0 0 52 52"
                                                 fill="currentColor"
-                                                fill-opacity="0"
+                                                fillOpacity="0"
                                                 stroke="#484848"
-                                                stroke-width="3"
+                                                strokeWidth="3"
                                                 focusable="false"
                                                 aria-hidden="true"
                                                 role="presentation"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
                                                 style={{
                                                   height: "48px",
                                                   width: "48px",
@@ -539,6 +545,10 @@ export const ConfirmAndPay = () => {
         </div>
       </div>
       <ConfirmAndPayFooter/>
+      <TransitionModal handleModal={handleGuest} open={guest}>
+        <h1>hello</h1>
+        <button onClick={()=>setGuest(false)}>close</button>
+      </TransitionModal>
     </>
   );
 };
