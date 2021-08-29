@@ -55,18 +55,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function SimpleModal() {
+export default function SimpleModal({ show, closeModal }) {
   const classes = useStyles()
   const [modalStyle] = React.useState(getModalStyle)
-  const [open, setOpen] = React.useState(false)
+  // const [open, setOpen] = React.useState(show)
   const [cnt, setCnt] = React.useState("India +91")
-  const handleOpen = () => {
-    setOpen(true)
-  }
+  // const handleOpen = () => {
+  //   setOpen(true)
+  // }
 
-  const handleClose = () => {
-    setOpen(false)
-  }
+  // const handleClose = () => {
+  //   setOpen(false)
+  // }
   const handleChange = (event) => {
     setCnt(event.target.value)
   }
@@ -127,7 +127,7 @@ export default function SimpleModal() {
                       <img style={{ width: 48, height: 48, borderRadius: "10" }} src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/google-512.png" alt="" />
             <p>Continue with Google</p>
           </div> */}
-          <Login />
+          <Login closeModal={closeModal} />
 
           <div className={styles.loginIconBox}>
             <EmailOutlinedIcon style={{ fontSize: 50, borderRadius: "10" }} />
@@ -140,10 +140,10 @@ export default function SimpleModal() {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
+      {/* <button type="button" onClick={handleOpen}>
         Login
-      </button>
-      <Modal open={open} onClose={handleClose}>
+      </button> */}
+      <Modal open={show} onClose={closeModal}>
         {body}
       </Modal>
     </div>

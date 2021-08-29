@@ -1,6 +1,7 @@
 import {
   GET_HOTEL_LIST,
   GET_ROOM,
+  LOGIN_SUCCESS,
   SET_CHECKIN,
   SET_CHECKOUT,
   SET_GUESTS,
@@ -12,6 +13,21 @@ const initState = {
   checkIn: "",
   checkOut: "",
   guests: {},
+  token: loadData("token") || "",
+  isAuth: false,
+}
+
+function saveData(key, data = "") {
+  localStorage.setItem(key, JSON.stringify(data))
+}
+function loadData(key) {
+  try {
+    let data = localStorage.getItem(key)
+    data = JSON.parse(data)
+    return data
+  } catch (err) {
+    return undefined
+  }
 }
 
 export function reducer(state = initState, { type, payload }) {
@@ -41,6 +57,13 @@ export function reducer(state = initState, { type, payload }) {
       return {
         ...state,
         guests: payload,
+      }
+    case LOGIN_SUCCESS:
+      saveData("token", payload)
+      return {
+        ...state,
+        token: payload,
+        isAuth: true,
       }
     default:
       return state

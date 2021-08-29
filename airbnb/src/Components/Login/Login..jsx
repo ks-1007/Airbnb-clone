@@ -1,12 +1,17 @@
 import React from "react"
-import ReactDOM from "react-dom"
+
 import GoogleLogin from "react-google-login"
+import { useDispatch } from "react-redux"
+import { setToken } from "../../Store/action"
 import styles from "./Login.module.css"
 
-const responseGoogle = (response) => {
-  console.log(response)
-}
-export function Login() {
+export function Login({ closeModal }) {
+  const dispatch = useDispatch()
+
+  const responseGoogle = ({ tokenId }) => {
+    closeModal()
+    dispatch(setToken(tokenId))
+  }
   return (
     <GoogleLogin
       clientId="493953240158-22m734jk85m0h1qf91lfask8sbe6ioid.apps.googleusercontent.com"
