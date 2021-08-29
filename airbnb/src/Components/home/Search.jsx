@@ -8,13 +8,13 @@ import { useState } from "react"
 
 export function Search() {
   const history = useHistory()
-  const isAuth = useSelector((state) => state.isAuth)
+  const token = useSelector((state) => state.token)
   const [show, setShow] = useState(false)
   const closeModal = () => {
     setShow(false)
   }
   const handleClick = () => {
-    if (isAuth) {
+    if (token) {
       history.push("/hotels")
     } else {
       setShow(true)

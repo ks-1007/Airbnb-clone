@@ -15,6 +15,8 @@ import { useState } from "react"
 import { useEffect } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
+import { Footer } from "../Components/home/Footer"
+import { ConfirmAndPayNavbar } from "../Components/confirmAndPayComp/confirmAndPayNavbar"
 const useStyle = makeStyles({
   root: {
     postion: "relative",
@@ -89,6 +91,7 @@ export function RoomDetailsPage() {
         starRating={room.starRating}
         hotelId={hotelId}
       />
+      <ConfirmAndPayNavbar />
       <Container className={classes.root}>
         <NameCont>
           <div>
@@ -151,6 +154,7 @@ export function RoomDetailsPage() {
         <Divider />
         <ThingsToKnow />
       </Container>
+      <Footer />
     </>
   )
 }

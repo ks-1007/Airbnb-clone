@@ -7,6 +7,8 @@ import ImportExportIcon from "@material-ui/icons/ImportExport"
 import { makeStyles } from "@material-ui/core/styles"
 import Slider from "@material-ui/core/Slider"
 import { Link } from "react-router-dom"
+import { Footer } from "./home/Footer"
+import { ConfirmAndPayNavbar } from "./confirmAndPayComp/confirmAndPayNavbar"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -94,65 +96,69 @@ function SearchPage() {
   }
 
   return (
-    <div>
-      <div className={styles.searchPage__info}>
-        <h3>300+ stays</h3>
-        <h1>Outdoor getaways</h1>
-        <Button variant="outlined">Cancellation Flexibility</Button>
-        <Button onClick={handleClick} variant="outlined">
-          Price
-        </Button>
-        {open ? (
-          <div className={classes.dropdown}>
-            <Slider
-              value={value}
-              min={100}
-              max={5000}
-              onChange={handleChange}
-              valueLabelDisplay="on"
-              aria-valuemax={value}
-            />
-            <div className={styles.fl_pr_sec}>
-              <div>
-                <b>min price</b> <br />
-                {value[0]}
-              </div>
-              <h2>-</h2>
-              <div>
-                <b>max price</b> <br />
-                {value[1]}
+    <>
+      <ConfirmAndPayNavbar />
+      <div>
+        <div className={styles.searchPage__info}>
+          <h3>300+ stays</h3>
+          <h1>Outdoor getaways</h1>
+          <Button variant="outlined">Cancellation Flexibility</Button>
+          <Button onClick={handleClick} variant="outlined">
+            Price
+          </Button>
+          {open ? (
+            <div className={classes.dropdown}>
+              <Slider
+                value={value}
+                min={100}
+                max={5000}
+                onChange={handleChange}
+                valueLabelDisplay="on"
+                aria-valuemax={value}
+              />
+              <div className={styles.fl_pr_sec}>
+                <div>
+                  <b>min price</b> <br />
+                  {value[0]}
+                </div>
+                <h2>-</h2>
+                <div>
+                  <b>max price</b> <br />
+                  {value[1]}
+                </div>
               </div>
             </div>
-          </div>
-        ) : null}
+          ) : null}
 
-        <Button onClick={handleRating} variant="outlined">
-          Rating
-          <ImportExportIcon />
-        </Button>
-        <Button onClick={handleReview} variant="outlined">
-          Review
-          <ImportExportIcon />
-        </Button>
-        <Button variant="outlined">More filters</Button>
-        <hr className={styles.searchPage__info_breakLine} />
+          <Button onClick={handleRating} variant="outlined">
+            Rating
+            <ImportExportIcon />
+          </Button>
+          <Button onClick={handleReview} variant="outlined">
+            Review
+            <ImportExportIcon />
+          </Button>
+          <Button variant="outlined">More filters</Button>
+          <hr className={styles.searchPage__info_breakLine} />
+        </div>
+        {hotel.map((el) => (
+          <SearchResult
+            handleLike={handleLike}
+            el={el}
+            liked={el.liked}
+            id={el.id}
+            images={el.images}
+            address={el.address}
+            description={el.details}
+            name={el.name}
+            starRating={el.starRating}
+            price={el.price}
+            review={el.review}
+          />
+        ))}
       </div>
-      {hotel.map((el) => (
-        <SearchResult
-          handleLike={handleLike}
-          el={el}
-          liked={el.liked}
-          id={el.id}
-          images={el.images}
-          address={el.address}
-          description={el.details}
-          name={el.name}
-          starRating={el.starRating}
-          price={el.price}
-          review={el.review}
-        />
-      ))}
-    </div>
+      <Footer />
+    </>
   )
 }
 
