@@ -20,7 +20,7 @@
     font-family: 'Circular Std Book', sans-serif;
     padding:20px 0;
     box-shadow: 0px 30px 170px #000000;
-    z-index: 1;
+    /* z-index: 1; */
     /* position: fixed; */
     position:absolute;
     
@@ -36,25 +36,156 @@
 .nav{
     width: 100%;
     height: 80px;
-    background-color: white;
-    position: fixed;
+    /* background-color: white; */
+    color: white;
     display: flex;
     flex-direction: row;
+    position: absolute;
+    margin-top: 60px;
+    font-family: 'Circular Std Book','Neue Helvetica','Roboto', sans-serif;
 }
+
 .nav svg{
     width:102;
     height:32;
-    color: #ff385c;
+    /* color: #ff385c; */
     margin: 25px 0 0 80px;
 }
-.searchBar{
+.nav div+p{
+    margin-left:  180px; ;
+}
+.nav p{
+    margin-top: 30px;
+    margin-left: 25px;
+}
+.nav p+button{
+    height: 40px;
+    width: 120px;
+    margin-left: 260px;
+    margin-top: 22px;
+    border-radius: 30px;
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+}
+.nav button+span{
+    width: 30px;
     height: 30px;
-    width: 150px;
-    border: 1px solid black;
+    margin-left: -70px;
+    margin-top: 7px;
+    font-size: 18px;
+    /* cursor: pointer; */
+}
+.sign{
+    height: 40px;
+    width: 78px;
+    background-color: #FFFFFF ;
+    display: flex;
+    flex-direction: row;
+    margin-left: 85px;
+    margin-top: 20px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.sign span{
+    position: absolute;
+    top: 0;
+    left: 100;
+    color: #717171;
+}
+.sign>span:nth-child(1){
+    margin-top: 4px;
+    margin-left: -70px;
+    font-size: 23px;
+}
+.sign>span:nth-child(2){
+    margin-top: 1px;
+    margin-left: -40px;
+    font-size: 30px;
 }
 
+/* search div */
 
-/* places... */
+.searchDiv{
+    width: 850px;
+    height:65px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    margin-top: 140px;
+    margin-left: 22%;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: row;
+     font-family: 'Circular Std Book','Neue Helvetica','Roboto', sans-serif;
+}
+.searchDiv>div:nth-child(1){
+    /* background-color: wheat; */
+    height: 65px;
+    width: 240px;
+    border-radius: 40px;
+    padding-left: 35px; 
+}
+.searchDiv>div:nth-child(2),.searchDiv>div:nth-child(3),.searchDiv>div:nth-child(4){
+    height: 65px;
+    width: 140px;
+    border-radius: 40px;
+    padding-left: 30px; 
+}
+.searchDiv>div:nth-child(4){
+    width: 210px;
+}
+.searchDiv>div:hover{
+   background-color: rgb(238, 238, 238);
+}
+.searchDiv h5{
+    letter-spacing: 0.3px;
+    font-size: 13px;
+    margin-top: 15px;
+}
+.searchDiv p{
+    margin-top: -20px;
+    color: #9e9e9e;
+    font-size: 14px;
+    font-weight: 50;
+}
+.searchDiv span{
+    position: absolute;
+    margin-top: -63px;
+    margin-left: 142px;
+    font-size: 65px;
+    color:#ff385c; ;
+}
+
+/* flexible */
+
+.flexible{
+    position: absolute;
+    margin-top: 380px;
+    margin-left: 42%;
+    text-align: center;
+    font-family: 'Circular Std Book','Neue Helvetica','Roboto', sans-serif;
+}
+.flexible>p{
+    font-size: 18px;
+    font-weight: 500;
+}
+.flexible>button{
+    width: 200px;
+    height: 65px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 1px 1px 15px rgb(221, 221, 221);
+    background-color:white ;
+}
+.gradient{
+     font-size: 18px;
+    font-weight: 600;
+    background: linear-gradient(to right, #6F019C 0%, #C6017E 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
 
 .placesDiv{
     margin-left: 80px;
