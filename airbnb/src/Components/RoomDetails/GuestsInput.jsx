@@ -1,12 +1,12 @@
 import { Box, Button, makeStyles, Paper } from "@material-ui/core"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import AddIcon from "@material-ui/icons/Add"
 import RemoveIcon from "@material-ui/icons/Remove"
 import ExpandLessIcon from "@material-ui/icons/ExpandLess"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import { useDispatch } from "react-redux"
 import { setGuest } from "../../Store/action"
-export function GuestInput() {
+export function GuestInput({handleModal=false,people=false}) {
   const [modalDisplay, setModalDisplay] = useState(false)
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -54,12 +54,38 @@ export function GuestInput() {
   }))
   const dispatch = useDispatch()
   const classes = useStyles()
+
+  
+
   const [adults, setAdults] = useState(1)
   const [children, setChildren] = useState(0)
   const [infants, setInfants] = useState(0)
+  
+  /*some changes by sumit*/
+useEffect(()=>{
+  if(people){
+    const {adults,children,infants} = people
+    setAdults(adults)
+    setChildren(children)
+    setInfants(infants)
+  }},[])
+  
+  /*some changes by sumit */
+
   const handleClose = () => {
     dispatch(setGuest({ adults, children, infants }))
     setModalDisplay(false)
+
+    if(handleModal){
+
+      let x = setTimeout(()=>{
+      handleModal()
+      clearTimeout(x)
+    },[500])
+    
+  }
+   
+    
   }
   return (
     <>

@@ -3,11 +3,16 @@
 .main_container {
   font-family: "Circular Std Bold", sans-serif;
 }
+
+.container  * {
+  box-sizing: border-box;
+}
 .Cnp_container {
   font-family: "Circular Std Bold", sans-serif;
   margin-left: auto;
   margin-right: auto;
 }
+
 
 .Cnp_box {
   -webkit-box-pack: start !important;
@@ -619,3 +624,34 @@
   margin-left: 8.33333% !important;
   margin-right: 0% !important;
 }
+
+
+.daterange{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn_close_save {
+  cursor: pointer !important;
+  display: inline-block !important;
+  margin: 0px;
+  position: relative !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  width: auto !important;
+  touch-action: manipulation !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  outline: none !important;
+  padding: 8px 16px;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s !important;
+  -webkit-tap-highlight-color: transparent !important;
+  border: none !important;
+  background: rgb(34, 34, 34);
+  color: rgb(255, 255, 255) ;
+}
+
