@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     outline: "none",
+    border: "none",
   },
 }))
 
@@ -116,6 +117,8 @@ export default function SimpleModal({ show, closeModal }) {
         </div>
         <hr />
         <div>
+          <Login closeModal={closeModal} />
+
           <div className={styles.loginIconBox}>
             <FacebookIcon
               style={{
@@ -136,22 +139,6 @@ export default function SimpleModal({ show, closeModal }) {
             />
             <p>Continue with Apple</p>
           </div>
-          {/* <div className={styles.loginIconBox}>
-                      <img style={{ width: 48, height: 48, borderRadius: "10" }} src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/google-512.png" alt="" />
-            <p>Continue with Google</p>
-          </div> */}
-          <Login closeModal={closeModal} />
-
-          {/* <div className={styles.loginIconBox}>
-            <EmailOutlinedIcon
-              style={{
-                fontSize: 50,
-                borderRadius: "10",
-                color: "rgb(72,103,170)",
-              }}
-            />
-            <p>Continue with email</p>
-          </div> */}
         </div>
       </div>
     </div>
