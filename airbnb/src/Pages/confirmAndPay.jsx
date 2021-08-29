@@ -17,6 +17,8 @@ import { DateRange } from "react-date-range";
 import { addDays } from "date-fns";
 import { setCheckIn, setCheckOut } from "../Store/action";
 import { GuestInput } from "../Components/RoomDetails/GuestsInput";
+import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
+
 
 export const ConfirmAndPay = () => {
   const { guests, checkIn, checkOut } = useSelector((state) => ({
@@ -89,7 +91,7 @@ const handlePaymentModal = (e) => {
   let x = setTimeout(()=>{
     setConfirmGo(true)
     clearTimeout(x)
-  },[3000])
+  },[10000])
 }
 
 /*confirmpayment function */
@@ -720,9 +722,10 @@ const handleChange = (event) => {
           </div>
         </TransitionModal>
         <TransitionModal handleModal={handlePaymentModal} open={confirm}> 
-          <div style={{textAlign:'center'}}>
+          <div style={{color:"rgb(255, 56, 92)",textAlign:'center'}}>
             <h2>Dear customer your Booking is Successfull for {days} nights</h2>
             <h1>Thankyou</h1>
+            <EmojiEmotionsIcon style={{fontSize:"50px",fill:"orange"}}/>
           </div>
         </TransitionModal>
       </div>
