@@ -11,7 +11,7 @@
       "price": 1499,
       "details": "4 guests . 2 bedroom . 1 bed . 1 bathroom",
       "review": "342",
-      "liked": true,
+      "liked": false,
       "phoneNumbers": [
         "888.249.8810"
       ],
@@ -1142,7 +1142,7 @@
       "price": 999,
       "details": "4 guests . 1 bedroom . 2 bed . 1 bathroom",
       "review": "253",
-      "liked": true,
+      "liked": false,
       "phoneNumbers": [
         "+34 942 27 11 00"
       ],
@@ -2487,7 +2487,7 @@
       "price": 2999,
       "details": "2 guests . 2 bedroom . 2 bed . 2 bathroom",
       "review": "480",
-      "liked": false,
+      "liked": true,
       "phoneNumbers": [
         "+39 055 26622"
       ],

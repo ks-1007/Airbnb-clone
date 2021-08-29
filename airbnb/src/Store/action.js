@@ -2,6 +2,7 @@ import axios from "axios"
 import {
   GET_HOTEL_LIST,
   GET_ROOM,
+  LOGIN_SUCCESS,
   SET_CHECKIN,
   SET_CHECKOUT,
   SET_GUESTS,
@@ -34,6 +35,12 @@ export const setCheckOut = (payload) => {
 export const setGuest = (payload) => {
   return {
     type: SET_GUESTS,
+    payload,
+  }
+}
+export const setToken = (payload) => {
+  return {
+    type: LOGIN_SUCCESS,
     payload,
   }
 }
