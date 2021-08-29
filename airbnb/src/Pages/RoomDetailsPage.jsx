@@ -17,6 +17,7 @@ import axios from "axios"
 import { useParams } from "react-router-dom"
 import { Footer } from "../Components/home/Footer"
 import { ConfirmAndPayNavbar } from "../Components/confirmAndPayComp/confirmAndPayNavbar"
+import Loading from "../Components/RoomDetails/Loading"
 const useStyle = makeStyles({
   root: {
     postion: "relative",
@@ -82,7 +83,7 @@ export function RoomDetailsPage() {
   window.addEventListener("scroll", handleScroll)
 
   return !room ? (
-    <h1>...loading</h1>
+    <Loading />
   ) : (
     <>
       <ScrollNavbar

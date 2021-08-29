@@ -40,11 +40,10 @@ export function Search() {
           <div>
             <h5>Guest</h5>
             <p>Add guests</p>
-            {/* <NavLink to="/hotels"> */}
+
             <span onClick={handleClick}>
               <IoSearchCircle />
             </span>
-            {/* </NavLink> */}
           </div>
         </div>
       </div>
