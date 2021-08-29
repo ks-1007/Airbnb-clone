@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Modal} from '@material-ui/core';
 import {Backdrop} from '@material-ui/core';
 import {Fade} from '@material-ui/core';
-
+import styles from './Css/modal.module.css'
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -36,8 +36,12 @@ export default function TransitionModal({handleModal,open,children}) {
         }}
       >
         <Fade in={open}>
+         <div className={!open ? styles.animeClose : ""}>
+          <div className={styles.anime}>
           <div className={classes.paper}>
             {children}
+          </div>
+          </div>
           </div>
         </Fade>
       </Modal>

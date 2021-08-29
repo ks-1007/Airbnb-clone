@@ -1,6 +1,21 @@
+import { useState } from "react";
 import styles from "./Css/stickydiv.module.css";
 
-export const StickyBox = () => {
+export const StickyBox = (props) => {
+
+  
+  const {days} = props.props
+  const {name,address,details,images,price,review,starRating} = props.props.room
+
+  const image = images[0].url
+  const hotelName = (name + "").slice(0,name.length - 10)
+  const discount = (days > 6) ? true : false
+  const totalPrice = days * Number(price)
+  const serviceFee = Math.round(totalPrice / 100) * 6
+  const taxes = Math.round(totalPrice / 100) * 4
+
+  const mainPrice = totalPrice + serviceFee + taxes
+
   return (
     <>
       {/* one div is required to wrap this with relative display
@@ -23,7 +38,7 @@ export const StickyBox = () => {
                     <img
                       className={styles.img}
                       alt="img"
-                      src="https://a0.muscache.com/im/pictures/1ebf76dc-62c7-474a-8a5a-4dc3dc8e6014.jpg?aki_policy=large"
+                      src={image}
                     />
                   </div>
                 </div>
@@ -31,12 +46,12 @@ export const StickyBox = () => {
                 {/*div for hotel details  */}
                 <div className={styles.hotelDetails_Box}>
                   <div className={styles._hotel_tagLine}>
-                    Entire apartment in Indore
+                    {hotelName}
                   </div>
                   <div className={styles._hotel_address}>
-                    Shrivardhan Homestay Studio Apartment 206
+                    {`${address.line1} ${address.city} ${address.countryName}`}
                   </div>
-                  <div className={styles._hotelFeatures}>1 bed · 1 bath</div>
+                  <div className={styles._hotelFeatures}>{details}</div>
                   {/*div for hotel details  */}
                   {/*div for hotel rating and superhost */}
                   <div className={styles._hotelRating_superhost_Box}>
@@ -59,9 +74,9 @@ export const StickyBox = () => {
                             ></path>
                           </svg>
                         </span>
-                        <span className={styles._rating_no}>4.67</span>
+                        <span className={styles._rating_no}>{starRating}</span>
                         <span className={styles._reviews}>
-                          &nbsp;(6 reviews)
+                          &nbsp;({review} reviews)
                         </span>
                       </span>
                     </div>
@@ -131,32 +146,32 @@ export const StickyBox = () => {
             <div>
                  <div style={{marginTop:"0px"}}>
                     <div className={styles.price_Information_Box}>
-                    <div className={styles.price_category_Box}><div className={styles.price_category_details }>₹1,450 x 14 nights</div></div>
-                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹20,300</span></span></div></div>
+                    <div className={styles.price_category_Box}><div className={styles.price_category_details }>₹{price} x {days} nights</div></div>
+                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹{totalPrice}</span></span></div></div>
                     </div>
                  </div>
-                 <div style={{marginTop:"16px"}}>
+                {/* {<div style={{marginTop:"16px"}}>
                     <div className={styles.price_Information_Box}>
                     <div className={styles.price_category_Box}><div className={styles.price_category_details }>1% weekly price discount</div></div>
-                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span style={{color: "rgb(0, 160, 0)"}}>-₹203</span></span></div></div>
+                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span style={{color: "rgb(0, 160, 0)"}}>-₹{totalDiscount}</span></span></div></div>
                     </div>
-                 </div>
+                 </div>:<></>} */}
                  <div style={{marginTop:"16px"}}>
                     <div className={styles.price_Information_Box}>
                     <div className={styles.price_category_Box}><div className={styles.price_category_details }>Service fee</div></div>
-                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹2,837.23</span></span></div></div>
+                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹{serviceFee}</span></span></div></div>
                     </div>
                  </div>
                  <div style={{marginTop:"16px"}}>
                     <div className={styles.price_Information_Box}>
                     <div className={styles.price_category_Box}><div className={styles.price_category_details }>Occupancy taxes and fees</div></div>
-                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹2,411.64</span></span></div></div>
+                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹{taxes}</span></span></div></div>
                     </div>
                  </div>
                  <div style={{marginTop:"16px"}}>
                     <div className={styles.price_Information_Box}>
                     <div className={styles.price_category_Box}><div className={styles.price_category_details }>Total(INR)</div></div>
-                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹25,345.87</span></span></div></div>
+                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹{mainPrice}</span></span></div></div>
                     </div>
                  </div>
             </div>
