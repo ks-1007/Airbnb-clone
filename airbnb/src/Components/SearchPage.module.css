@@ -24,3 +24,19 @@
   text-transform: inherit;
   margin: 5px;
 }
+
+.fl_pr_sec {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  line-height: 1.3rem;
+}
+.fl_pr_sec > div {
+  border: 2px solid #3f50b5;
+  padding: 5px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+.fl_pr_sec > div > b {
+  color: #3f50b5;
+}

@@ -7,8 +7,6 @@ import ImportExportIcon from "@material-ui/icons/ImportExport"
 import { makeStyles } from "@material-ui/core/styles"
 import Slider from "@material-ui/core/Slider"
 import { Link } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import { actionGetHotelList } from "../Store/action"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,10 +15,14 @@ const useStyles = makeStyles((theme) => ({
   dropdown: {
     position: "absolute",
     width: "200px",
-    top: 110,
+    padding: "50px 30px",
+    top: 190,
     right: 0,
-    left: 200,
+    left: 160,
     zIndex: 1,
+    border: '1px solid',
+    // padding: theme.spacing(1),
+    backgroundColor: theme.palette.background.paper,
   },
 }))
 function SearchPage() {
@@ -110,6 +112,17 @@ function SearchPage() {
               valueLabelDisplay="on"
               aria-valuemax={value}
             />
+            <div className={styles.fl_pr_sec}>
+            <div>
+              <b>min price</b> <br/>
+              { value[0] }
+              </div>
+              <h2>-</h2>
+            <div>
+              <b>max price</b> <br/>
+              { value[1] }
+            </div>
+            </div>
           </div>
         ) : null}
 
