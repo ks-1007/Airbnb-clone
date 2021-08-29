@@ -117,11 +117,23 @@ export default function SimpleModal({ show, closeModal }) {
         <hr />
         <div>
           <div className={styles.loginIconBox}>
-            <FacebookIcon style={{ fontSize: 50, borderRadius: "10" }} />
+            <FacebookIcon
+              style={{
+                fontSize: 50,
+                borderRadius: "10",
+                color: "rgb(72,103,170)",
+              }}
+            />
             <p>Continue with Facebook</p>
           </div>
           <div className={styles.loginIconBox}>
-            <AppleIcon style={{ fontSize: 50, borderRadius: "10" }} />
+            <AppleIcon
+              style={{
+                fontSize: 50,
+                borderRadius: "10",
+                color: "rgb(143,143,143)",
+              }}
+            />
             <p>Continue with Apple</p>
           </div>
           {/* <div className={styles.loginIconBox}>
@@ -130,10 +142,16 @@ export default function SimpleModal({ show, closeModal }) {
           </div> */}
           <Login closeModal={closeModal} />
 
-          <div className={styles.loginIconBox}>
-            <EmailOutlinedIcon style={{ fontSize: 50, borderRadius: "10" }} />
+          {/* <div className={styles.loginIconBox}>
+            <EmailOutlinedIcon
+              style={{
+                fontSize: 50,
+                borderRadius: "10",
+                color: "rgb(72,103,170)",
+              }}
+            />
             <p>Continue with email</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

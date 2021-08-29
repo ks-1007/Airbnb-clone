@@ -4,7 +4,7 @@ import GoogleLogin from "react-google-login"
 import { useDispatch } from "react-redux"
 import { setToken } from "../../Store/action"
 import styles from "./Login.module.css"
-
+import { FcGoogle } from "react-icons/fc"
 export function Login({ closeModal }) {
   const dispatch = useDispatch()
 
@@ -21,11 +21,12 @@ export function Login({ closeModal }) {
           onClick={renderProps.onClick}
           disabled={renderProps.disabled}
         >
-          <img
+          {/* <img
             style={{ width: 48, height: 48, borderRadius: "10" }}
             src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/google-512.png"
             alt=""
-          />
+          /> */}
+          <FcGoogle style={{ fontSize: "50px" }} />
           <p>Continue with Google</p>
         </div>
       )}
