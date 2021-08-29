@@ -9,6 +9,7 @@ import styles from "./Login.module.css"
 import TextField from "@material-ui/core/TextField"
 import MenuItem from "@material-ui/core/MenuItem"
 import { Login } from "./Login."
+import { Logout } from "./Logout"
 
 const country = [
   {
@@ -127,6 +128,7 @@ export default function SimpleModal() {
             <p>Continue with Google</p>
           </div> */}
           <Login />
+
           <div className={styles.loginIconBox}>
             <EmailOutlinedIcon style={{ fontSize: 50, borderRadius: "10" }} />
             <p>Continue with email</p>

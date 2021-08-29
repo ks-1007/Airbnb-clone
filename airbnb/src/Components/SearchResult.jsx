@@ -135,7 +135,7 @@ function SearchResult({
                 <IconButton onClick={() => handleLike(el, liked)}>
                   <FavoriteIcon
                     data-testid="like-icon"
-                    style={liked ? { color: "red" } : undefined}
+                    // style={liked ? { color: "red" } : undefined}
                   />
                 </IconButton>
               </p>

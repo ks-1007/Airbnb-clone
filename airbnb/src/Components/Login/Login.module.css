@@ -5,6 +5,7 @@
   border-radius: 10px;
   margin: 15px 0;
   padding: 0 5px;
+  cursor: pointer;
 }
 .loginIconBox > p {
   margin-left: 100px;

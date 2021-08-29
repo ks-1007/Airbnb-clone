@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     left: 160,
     zIndex: 1,
-    border: '1px solid',
+    border: "1px solid",
     // padding: theme.spacing(1),
     backgroundColor: theme.palette.background.paper,
   },
@@ -77,7 +77,7 @@ function SearchPage() {
     setHotel(st)
   }
 
-  const handleLike = async (likedData) => {
+  const handleLike = async (likedData, e) => {
     await axios.patch(`http://localhost:3050/data/${likedData.id}`, {
       ...likedData,
       liked: !likedData.liked,
@@ -96,7 +96,7 @@ function SearchPage() {
   return (
     <div>
       <div className={styles.searchPage__info}>
-        <p>300+ stays</p>
+        <h3>300+ stays</h3>
         <h1>Outdoor getaways</h1>
         <Button variant="outlined">Cancellation Flexibility</Button>
         <Button onClick={handleClick} variant="outlined">
@@ -113,15 +113,15 @@ function SearchPage() {
               aria-valuemax={value}
             />
             <div className={styles.fl_pr_sec}>
-            <div>
-              <b>min price</b> <br/>
-              { value[0] }
+              <div>
+                <b>min price</b> <br />
+                {value[0]}
               </div>
               <h2>-</h2>
-            <div>
-              <b>max price</b> <br/>
-              { value[1] }
-            </div>
+              <div>
+                <b>max price</b> <br />
+                {value[1]}
+              </div>
             </div>
           </div>
         ) : null}
