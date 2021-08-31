@@ -1,12 +1,13 @@
 # Airbnb
 ## Project:- Clone of www.airbnb.co.in
+
 ### How airbnb works?-You’re just 3 steps away from your next getaway
 
-####1.Start by exploring Stays or Experiences. Apply filters like entire homes, self check-in or pets allowed to narrow your options. You can also save favourites to a wish list.
+#### 1.Start by exploring Stays or Experiences. Apply filters like entire homes, self check-in or pets allowed to narrow your options. You can also save favourites to a wish list.
 
-####2.Once you’ve found what you’re looking for, learn about your host, read past guest reviews, and get the details on cancellation options – then book in just a few clicks.
+#### 2.Once you’ve found what you’re looking for, learn about your host, read past guest reviews, and get the details on cancellation options – then book in just a few clicks.
 
-####3.You’re all set! Connect with your host through the app for local tips, questions or advice. You can also contact Airbnb anytime for additional support.
+#### 3.You’re all set! Connect with your host through the app for local tips, questions or advice. You can also contact Airbnb anytime for additional support.
 
 We created the clone of Airbnb with all it's main functions like- login & signup(google), search for stays, filter hotels, search by dates and your requirements and just pay simple.
 
