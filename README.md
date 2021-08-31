@@ -71,4 +71,6 @@ npm start
 ### Confirm and payment page
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/9.png?raw=true)
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/10.png?raw=true)
+
+we tried our best to make a good design and functionality in 5 days.
 I am glad that you visited here, Thank you.
