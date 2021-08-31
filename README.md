@@ -54,7 +54,7 @@ npm start
 #### Vamsi Gudivada[View GitHub profile](https://github.com/vamsinagendra2)
 
 ## Screenshots
-###sign up and login
+### sign up and login
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/2.png?raw=true)
 ### Landing Page
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/1.png?raw=true)
@@ -63,12 +63,12 @@ npm start
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/5.png?raw=true)
 ### Footer
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/4.png?raw=true)
-###Hotels rooms and in detail
+### Hotels rooms and in detail
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/6.png?raw=true)
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/7.png?raw=true)
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/8.png?raw=true)
 
-###Confirm and payment page
+### Confirm and payment page
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/9.png?raw=true)
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/10.png?raw=true)
 I am glad that you visited here, Thank you.
