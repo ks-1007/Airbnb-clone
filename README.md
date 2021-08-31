@@ -59,7 +59,7 @@ npm start
 ### Landing Page
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/1.png?raw=true)
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/3.png?raw=true)
-###Hotels and stays
+### Hotels and stays
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/5.png?raw=true)
 ### Footer
 ![alt text](https://github.com/ks-1007/Airbnb-clone/blob/main/airbnb/public/4.png?raw=true)
