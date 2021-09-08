@@ -1,69 +1,64 @@
-import { ConfirmAndPayNavbar } from "../Components/confirmAndPayComp/confirmAndPayNavbar";
-import { NavLink, Redirect, useParams } from "react-router-dom";
-import SlidingSwitch from "../Components/confirmAndPayComp/confirmAndPayButton";
-import styles from "./Css/confirmAndPay.module.css";
-import React, { useState } from "react";
-import { StickyBox } from "../Components/confirmAndPayComp/stickydiv";
-import { ConfirmAndPayFooter } from "../Components/confirmAndPayComp/confirmAndPayfooter";
-import { useDispatch, useSelector } from "react-redux";
-import TransitionModal from "../Components/confirmAndPayComp/modal";
-import { useEffect } from "react";
-import axios from "axios";
-import { DaysCalculator } from "../Components/confirmAndPayComp/daysCalculator";
-import { useMemo } from "react";
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
-import { DateRange } from "react-date-range";
-import { addDays } from "date-fns";
-import { setCheckIn, setCheckOut } from "../Store/action";
-import { GuestInput } from "../Components/RoomDetails/GuestsInput";
-import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
-
+import { ConfirmAndPayNavbar } from "../Components/confirmAndPayComp/confirmAndPayNavbar"
+import { NavLink, Redirect, useParams } from "react-router-dom"
+import SlidingSwitch from "../Components/confirmAndPayComp/confirmAndPayButton"
+import styles from "./Css/confirmAndPay.module.css"
+import React, { useState } from "react"
+import { StickyBox } from "../Components/confirmAndPayComp/stickydiv"
+import { ConfirmAndPayFooter } from "../Components/confirmAndPayComp/confirmAndPayfooter"
+import { useDispatch, useSelector } from "react-redux"
+import TransitionModal from "../Components/confirmAndPayComp/modal"
+import { useEffect } from "react"
+import axios from "axios"
+import { DaysCalculator } from "../Components/confirmAndPayComp/daysCalculator"
+import { useMemo } from "react"
+import "react-date-range/dist/styles.css"
+import "react-date-range/dist/theme/default.css"
+import { DateRange } from "react-date-range"
+import { addDays } from "date-fns"
+import { setCheckIn, setCheckOut } from "../Store/action"
+import { GuestInput } from "../Components/RoomDetails/GuestsInput"
+import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions"
 
 export const ConfirmAndPay = () => {
   const { guests, checkIn, checkOut } = useSelector((state) => ({
     guests: state.guests,
     checkIn: state.checkIn,
     checkOut: state.checkOut,
-  }));
- 
+  }))
+
   const dispatch = useDispatch()
 
   /*loading function */
 
-  const [loading,setLoading] = useState(true)
+  const [loading, setLoading] = useState(true)
 
   /*loading function */
-  const { hotelId } = useParams();
-  const [days, setDays] = useState(0);
+  const { hotelId } = useParams()
+  const [days, setDays] = useState(0)
 
-  
   const totalGuests = guests.adults + guests.children + guests.infants
 
   /*dates */
-   const checkInMonth = (checkIn + "").slice(4,7) 
-   const checkInDay = (checkIn + "").slice(8,10)
-   const checkOutMonth = (checkOut + "").slice(4,7) 
-   const checkOutDay = (checkOut + "").slice(8,10)
-   
+  const checkInMonth = (checkIn + "").slice(4, 7)
+  const checkInDay = (checkIn + "").slice(8, 10)
+  const checkOutMonth = (checkOut + "").slice(4, 7)
+  const checkOutDay = (checkOut + "").slice(8, 10)
+
   /*dates */
 
   useMemo(() => {
-    const Difference_In_Days = DaysCalculator({ checkIn, checkOut });
+    const Difference_In_Days = DaysCalculator({ checkIn, checkOut })
     setDays(Difference_In_Days)
-  }, [checkIn, checkOut]);
+  }, [checkIn, checkOut])
 
-
-  
-
-  const [paymentCard, setPaymentCard] = useState(false);
-  const [guest, setGuest] = useState(false);
-  const [dates, setDates] = useState(false);
-  const [room, setRoom] = useState(false);
-  const [note, setNote] = useState("Add a note for expensing purposes.");
-  const [noteModal, setNoteModal] = useState(false);
-  const [confirm,setConfirm] = useState(false)
-  const [confirmGo,setConfirmGo] = useState(false)
+  const [paymentCard, setPaymentCard] = useState(false)
+  const [guest, setGuest] = useState(false)
+  const [dates, setDates] = useState(false)
+  const [room, setRoom] = useState(false)
+  const [note, setNote] = useState("Add a note for expensing purposes.")
+  const [noteModal, setNoteModal] = useState(false)
+  const [confirm, setConfirm] = useState(false)
+  const [confirmGo, setConfirmGo] = useState(false)
   /*calendar functions */
 
   const [calendarDate, setCalendarDate] = useState([
@@ -72,84 +67,82 @@ export const ConfirmAndPay = () => {
       endDate: checkOut,
       key: "selection",
     },
-  ]);
+  ])
 
   const handleDateDispatch = () => {
-    
     setLoading(true)
     dispatch(setCheckIn(calendarDate[0].startDate))
     dispatch(setCheckOut(calendarDate[0].endDate))
     setLoading(false)
-  
-
   }
-/*calendar functions */
+  /*calendar functions */
 
-/*confirmpayment function */
-const handlePaymentModal = (e) => {
-  setConfirm(true)
-  let x = setTimeout(()=>{
-    setConfirmGo(true)
-    clearTimeout(x)
-  },[10000])
-}
+  /*confirmpayment function */
+  const handlePaymentModal = (e) => {
+    setConfirm(true)
+    let x = setTimeout(() => {
+      setConfirmGo(true)
+      clearTimeout(x)
+    }, [4000])
+  }
 
-/*confirmpayment function */
+  /*confirmpayment function */
 
-/*modal functions */
+  /*modal functions */
   const handleGuest = (e) => {
-    setGuest(e);
-  };
+    setGuest(e)
+  }
 
   const handleDates = (e) => {
-    setDates(e);
-  };
- 
+    setDates(e)
+  }
+
   const handleNoteModal = (e) => {
-    if(note === ""){
+    if (note === "") {
       setNote("Add a note for expensing purposes.")
     }
-    setNoteModal(e);
-    if(e === true){setNote("")}
-  };
-  
-/*modal functions */
+    setNoteModal(e)
+    if (e === true) {
+      setNote("")
+    }
+  }
 
- /*switch functions */
-  
- const [state, setState] = useState({
-  checkedB: false,
-});
-const handleChange = (event) => {
-  setState({ ...state, [event.target.name]: event.target.checked });
-};
+  /*modal functions */
 
-/*switch functions */
+  /*switch functions */
+
+  const [state, setState] = useState({
+    checkedB: false,
+  })
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked })
+  }
+
+  /*switch functions */
 
   const handlePaymentCard = () => {
-    setPaymentCard(!paymentCard);
-  };
+    setPaymentCard(!paymentCard)
+  }
 
-  
   useEffect(() => {
     axios
-      .get(`http://localhost:3050/data/${hotelId}`)
+      .get(`https://airbnb1007-clone-server.herokuapp.com/data/${hotelId}`)
 
       .then(({ data }) => {
-        setRoom(data);
+        setRoom(data)
         setLoading(false)
       })
       .catch((err) => {
-        console.log("err:", err);
-      });
-  }, []);
+        console.log("err:", err)
+      })
+  }, [])
 
-  if(loading){
-    return (<div style={{textAlign:"center"}}>Loading...</div>)
+  if (loading) {
+    return <div style={{ textAlign: "center" }}>Loading...</div>
   }
-  
-  if(confirmGo){
-    return <Redirect to="/"/>
+
+  if (confirmGo) {
+    return <Redirect to="/" />
   }
   return (
     <>
@@ -217,7 +210,8 @@ const handleChange = (event) => {
                               <h3 className={styles.tagLine}>Dates</h3>
                             </div>
                             <div className={styles.TagDetails}>
-                             {checkInDay} {checkInMonth} – {checkOutDay} {checkOutMonth}
+                              {checkInDay} {checkInMonth} – {checkOutDay}{" "}
+                              {checkOutMonth}
                             </div>
                           </div>
                           <button
@@ -244,7 +238,9 @@ const handleChange = (event) => {
                             >
                               <h3 className={styles.tagLine}>Guests</h3>
                             </div>
-                            <div className={styles.TagDetails}>{totalGuests} guests</div>
+                            <div className={styles.TagDetails}>
+                              {totalGuests} guests
+                            </div>
                           </div>
                           <button
                             onClick={() => handleGuest(true)}
@@ -589,14 +585,15 @@ const handleChange = (event) => {
                             </section>
                             <div style={{ paddingTop: "24px" }}></div>
                             <strong>
-                              Free cancellation before 12:00 PM on {`${Number(checkInDay) - 1}`} {checkInMonth}.
+                              Free cancellation before 12:00 PM on{" "}
+                              {`${Number(checkInDay) - 1}`} {checkInMonth}.
                             </strong>
                             <span style={{ color: "rgb(113, 113, 113)" }}>
                               {" "}
                               <span className={styles.TagDetails}>
-                                After that, cancel before 12:00 PM on {checkInDay} {checkInMonth} and
-                                get a full refund, minus the first night and
-                                service fee.
+                                After that, cancel before 12:00 PM on{" "}
+                                {checkInDay} {checkInMonth} and get a full
+                                refund, minus the first night and service fee.
                               </span>{" "}
                             </span>
                             <button className={styles.button_underline}>
@@ -671,7 +668,7 @@ const handleChange = (event) => {
                       <button
                         disabled={paymentCard ? true : false}
                         className={styles.button_confirm_and_pay}
-                        onClick={()=>handlePaymentModal(true)}
+                        onClick={() => handlePaymentModal(true)}
                       >
                         <span className={styles._163rr5i}>
                           <span className={styles.mouseaction}></span>
@@ -688,17 +685,21 @@ const handleChange = (event) => {
                 </div>
               </div>
               <div className={styles.priceDetailsBox}>
-                <StickyBox props={{room,days}}/>
+                <StickyBox props={{ room, days }} />
               </div>
             </div>
           </div>
         </div>
         <ConfirmAndPayFooter />
         <TransitionModal handleModal={handleGuest} open={guest}>
-          < GuestInput handleModal={()=>handleGuest(false)} people={guests}/>
+          <GuestInput handleModal={() => handleGuest(false)} people={guests} />
         </TransitionModal>
-        <TransitionModal className={styles.anime} handleModal={handleDates} open={dates}>
-          <div style={{paddingTop:"15px"}}>
+        <TransitionModal
+          className={styles.anime}
+          handleModal={handleDates}
+          open={dates}
+        >
+          <div style={{ paddingTop: "15px" }}>
             <DateRange
               editableDateInputs={true}
               onChange={(item) => setCalendarDate([item.selection])}
@@ -710,25 +711,60 @@ const handleChange = (event) => {
             />
           </div>
           <div className={styles.daterange}>
-          <button style={{color: "rgb(34, 34, 34)", background: "rgb(255, 255, 255)"}} className={styles.btn_close_save} onClick={() => handleDates(false)}><span style={{textDecoration:"underline",fontSize:"18px"}}>Close</span></button>
-          <button className={styles.btn_close_save} onClick={handleDateDispatch}>Save</button>
+            <button
+              style={{
+                color: "rgb(34, 34, 34)",
+                background: "rgb(255, 255, 255)",
+              }}
+              className={styles.btn_close_save}
+              onClick={() => handleDates(false)}
+            >
+              <span style={{ textDecoration: "underline", fontSize: "18px" }}>
+                Close
+              </span>
+            </button>
+            <button
+              className={styles.btn_close_save}
+              onClick={handleDateDispatch}
+            >
+              Save
+            </button>
           </div>
         </TransitionModal>
         <TransitionModal handleModal={handleNoteModal} open={noteModal}>
           <h2>Notes</h2>
-          <input style={{width:"400px",height:"50px",fontSize:"24px"}} type="text" value={note} onChange={(e)=> setNote(e.target.value)} />
+          <input
+            style={{ width: "400px", height: "50px", fontSize: "24px" }}
+            type="text"
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+          />
           <div className={styles.daterange}>
-          <button style={{marginLeft:"-10px",marginTop:"5px",color: "rgb(34, 34, 34)", background: "rgb(255, 255, 255)",justifyContent:"flex-end"}} className={styles.btn_close_save} onClick={() => handleNoteModal(false)}><span style={{textDecoration:"underline",fontSize:"18px"}}>Close</span></button>
+            <button
+              style={{
+                marginLeft: "-10px",
+                marginTop: "5px",
+                color: "rgb(34, 34, 34)",
+                background: "rgb(255, 255, 255)",
+                justifyContent: "flex-end",
+              }}
+              className={styles.btn_close_save}
+              onClick={() => handleNoteModal(false)}
+            >
+              <span style={{ textDecoration: "underline", fontSize: "18px" }}>
+                Close
+              </span>
+            </button>
           </div>
         </TransitionModal>
-        <TransitionModal handleModal={handlePaymentModal} open={confirm}> 
-          <div style={{color:"rgb(255, 56, 92)",textAlign:'center'}}>
+        <TransitionModal handleModal={handlePaymentModal} open={confirm}>
+          <div style={{ color: "rgb(255, 56, 92)", textAlign: "center" }}>
             <h2>Dear customer your Booking is Successfull for {days} nights</h2>
             <h1>Thankyou</h1>
-            <EmojiEmotionsIcon style={{fontSize:"50px",fill:"orange"}}/>
+            <EmojiEmotionsIcon style={{ fontSize: "50px", fill: "orange" }} />
           </div>
         </TransitionModal>
       </div>
     </>
-  );
-};
+  )
+}

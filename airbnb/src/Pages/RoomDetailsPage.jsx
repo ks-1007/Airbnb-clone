@@ -57,7 +57,7 @@ export function RoomDetailsPage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3050/data/${hotelId}`)
+      .get(`https://airbnb1007-clone-server.herokuapp.com/data/${hotelId}`)
 
       .then(({ data }) => {
         setRoom(data)

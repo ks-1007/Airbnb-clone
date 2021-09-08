@@ -47,7 +47,7 @@ export const setToken = (payload) => {
 
 export const actionGetHotelList = () => (dispatch) => {
   axios
-    .get("http://localhost:3050/data")
+    .get("https://airbnb1007-clone-server.herokuapp.com/data")
     .then(({ data }) => {
       dispatch(getHotelList(data))
     })
@@ -57,7 +57,9 @@ export const actionGetHotelList = () => (dispatch) => {
 }
 
 export const actionGetRoom = (id) => (dispatch) => {
-  axios.get(`http://localhost:3050/data/${id}`).then(({ data }) => {
-    dispatch(getRoom(data))
-  })
+  axios
+    .get(`https://airbnb1007-clone-server.herokuapp.com/data/${id}`)
+    .then(({ data }) => {
+      dispatch(getRoom(data))
+    })
 }

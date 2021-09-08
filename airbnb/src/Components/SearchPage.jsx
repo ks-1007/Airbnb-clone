@@ -18,9 +18,9 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     width: "200px",
     padding: "50px 30px",
-    top: 190,
+    top: 300,
     right: 0,
-    left: 160,
+    left: 450,
     zIndex: 1,
     border: "1px solid",
     // padding: theme.spacing(1),
@@ -39,7 +39,7 @@ function SearchPage() {
 
   const getData = async () => {
     axios
-      .get("http://localhost:3050/data")
+      .get("https://airbnb1007-clone-server.herokuapp.com/data")
       .then(({ data }) => {
         setHotel([...data])
         SetFilterHotel([...data])
@@ -80,10 +80,13 @@ function SearchPage() {
   }
 
   const handleLike = async (likedData, e) => {
-    await axios.patch(`http://localhost:3050/data/${likedData.id}`, {
-      ...likedData,
-      liked: !likedData.liked,
-    })
+    await axios.patch(
+      `https://airbnb1007-clone-server.herokuapp.com/data/${likedData.id}`,
+      {
+        ...likedData,
+        liked: !likedData.liked,
+      }
+    )
     getData()
   }
 
