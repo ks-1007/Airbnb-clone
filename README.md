@@ -15,7 +15,6 @@ We created the clone of Airbnb with all it's main functions like- login & signup
 1. React 
 2. JavaScript
 3. CSS
-4. HTML
 
 #### Tech library used:
 1. Material UI & material icons
