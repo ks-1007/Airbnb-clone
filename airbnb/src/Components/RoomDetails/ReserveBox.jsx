@@ -50,13 +50,13 @@ const useStyle = makeStyles((theme) => ({
     zIndex: "0",
   },
 }))
-export function ReserveBox({ starRating, price, hotelId }) {
+export function ReserveBox({ starRating, price, hotelId, review }) {
   const classes = useStyle()
   const [selectedCheckInDate, setSelectedCheckInDate] = React.useState(
-    new Date("2021-08-26T21:11:54")
+    new Date()
   )
   const [selectedCheckOutDate, setSelectedCheckOutDate] = React.useState(
-    new Date("2021-08-26T21:11:54")
+    new Date()
   )
   const dispatch = useDispatch()
   const handleCheckInDateChange = (date) => {
@@ -89,7 +89,7 @@ export function ReserveBox({ starRating, price, hotelId }) {
             }}
           >
             <Star style={{ color: "rgb(239,78,89)" }} /> {starRating + "."}{" "}
-            <span>137 reviews</span>
+            <span>{review} reviews</span>
           </Box>
         </Box>
         <Box className={classes.inputCont}>
@@ -109,16 +109,7 @@ export function ReserveBox({ starRating, price, hotelId }) {
               }}
             >
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <Box
-                  style={
-                    {
-                      // display: "grid",
-                      // gridTemplateColumns: "25% 25%",
-                      // gap: "2%",
-                      // height: "100px",
-                    }
-                  }
-                >
+                <Box>
                   <KeyboardDatePicker
                     disableToolbar
                     variant="inline"
@@ -143,16 +134,7 @@ export function ReserveBox({ starRating, price, hotelId }) {
             >
               {" "}
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <Box
-                  style={
-                    {
-                      // display: "grid",
-                      // gridTemplateColumns: "25% 25%",
-                      // gap: "2%",
-                      // height: "100px",
-                    }
-                  }
-                >
+                <Box>
                   <KeyboardDatePicker
                     disableToolbar
                     variant="inline"

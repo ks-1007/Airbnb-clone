@@ -1,15 +1,14 @@
-import { useState } from "react";
-import styles from "./Css/stickydiv.module.css";
+import { useState } from "react"
+import styles from "./Css/stickydiv.module.css"
 
 export const StickyBox = (props) => {
-
-  
-  const {days} = props.props
-  const {name,address,details,images,price,review,starRating} = props.props.room
+  const { days } = props.props
+  const { name, address, details, images, price, review, starRating } =
+    props.props.room
 
   const image = images[0].url
-  const hotelName = (name + "").slice(0,name.length - 10)
-  const discount = (days > 6) ? true : false
+  const hotelName = (name + "").slice(0, name.length - 10)
+  const discount = days > 6 ? true : false
   const totalPrice = days * Number(price)
   const serviceFee = Math.round(totalPrice / 100) * 6
   const taxes = Math.round(totalPrice / 100) * 4
@@ -35,19 +34,13 @@ export const StickyBox = (props) => {
                 {/*div for hotel image  */}
                 <div className={styles.img_Box}>
                   <div className={styles.inside_img_Box}>
-                    <img
-                      className={styles.img}
-                      alt="img"
-                      src={image}
-                    />
+                    <img className={styles.img} alt="img" src={image} />
                   </div>
                 </div>
                 {/*div for hotel image  */}
                 {/*div for hotel details  */}
                 <div className={styles.hotelDetails_Box}>
-                  <div className={styles._hotel_tagLine}>
-                    {hotelName}
-                  </div>
+                  <div className={styles._hotel_tagLine}>{hotelName}</div>
                   <div className={styles._hotel_address}>
                     {`${address.line1} ${address.city} ${address.countryName}`}
                   </div>
@@ -122,62 +115,95 @@ export const StickyBox = (props) => {
           </div>
           <div className={styles.lineBreaker}></div>
           {/*price details TagLine div */}
-          <div
-                        style={{ paddingTop: "24px", paddingBottom: "24px" }}
-                      >
-                        <div style={{ fontSize: "16px", lineHeight: "20px" }}>
-                          <section>
-                            <div
-                              style={{
-                                fontSize: "22px",
-                                lineHeight: "26px",
-                                fontWeight: "800",
-                              }}
-                            >
-                              <h2 style={{color:"black"}} className={styles.tagLine}>
-                                Price details
-                              </h2>
-                            </div>
-                          </section>
-                       </div>
+          <div style={{ paddingTop: "24px", paddingBottom: "24px" }}>
+            <div style={{ fontSize: "16px", lineHeight: "20px" }}>
+              <section>
+                <div
+                  style={{
+                    fontSize: "22px",
+                    lineHeight: "26px",
+                    fontWeight: "800",
+                  }}
+                >
+                  <h2 style={{ color: "black" }} className={styles.tagLine}>
+                    Price details
+                  </h2>
+                </div>
+              </section>
+            </div>
           </div>
           {/*price details TagLine div */}
           {/*price details box*/}
-            <div>
-                 <div style={{marginTop:"0px"}}>
-                    <div className={styles.price_Information_Box}>
-                    <div className={styles.price_category_Box}><div className={styles.price_category_details }>₹{price} x {days} nights</div></div>
-                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹{totalPrice}</span></span></div></div>
-                    </div>
-                 </div>
-                {/* {<div style={{marginTop:"16px"}}>
-                    <div className={styles.price_Information_Box}>
-                    <div className={styles.price_category_Box}><div className={styles.price_category_details }>1% weekly price discount</div></div>
-                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span style={{color: "rgb(0, 160, 0)"}}>-₹{totalDiscount}</span></span></div></div>
-                    </div>
-                 </div>:<></>} */}
-                 <div style={{marginTop:"16px"}}>
-                    <div className={styles.price_Information_Box}>
-                    <div className={styles.price_category_Box}><div className={styles.price_category_details }>Service fee</div></div>
-                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹{serviceFee}</span></span></div></div>
-                    </div>
-                 </div>
-                 <div style={{marginTop:"16px"}}>
-                    <div className={styles.price_Information_Box}>
-                    <div className={styles.price_category_Box}><div className={styles.price_category_details }>Occupancy taxes and fees</div></div>
-                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹{taxes}</span></span></div></div>
-                    </div>
-                 </div>
-                 <div style={{marginTop:"16px"}}>
-                    <div className={styles.price_Information_Box}>
-                    <div className={styles.price_category_Box}><div className={styles.price_category_details }>Total(INR)</div></div>
-                    <div className={styles.price_rupees_Box}><div className={styles.price_rupees_wrapper}><span className={styles.price_rupees_details}><span>₹{mainPrice}</span></span></div></div>
-                    </div>
-                 </div>
+          <div>
+            <div style={{ marginTop: "0px" }}>
+              <div className={styles.price_Information_Box}>
+                <div className={styles.price_category_Box}>
+                  <div className={styles.price_category_details}>
+                    ₹{price} x {days} nights
+                  </div>
+                </div>
+                <div className={styles.price_rupees_Box}>
+                  <div className={styles.price_rupees_wrapper}>
+                    <span className={styles.price_rupees_details}>
+                      <span>₹{totalPrice}</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <div style={{ marginTop: "16px" }}>
+              <div className={styles.price_Information_Box}>
+                <div className={styles.price_category_Box}>
+                  <div className={styles.price_category_details}>
+                    Service fee
+                  </div>
+                </div>
+                <div className={styles.price_rupees_Box}>
+                  <div className={styles.price_rupees_wrapper}>
+                    <span className={styles.price_rupees_details}>
+                      <span>₹{serviceFee}</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style={{ marginTop: "16px" }}>
+              <div className={styles.price_Information_Box}>
+                <div className={styles.price_category_Box}>
+                  <div className={styles.price_category_details}>
+                    Occupancy taxes and fees
+                  </div>
+                </div>
+                <div className={styles.price_rupees_Box}>
+                  <div className={styles.price_rupees_wrapper}>
+                    <span className={styles.price_rupees_details}>
+                      <span>₹{taxes}</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style={{ marginTop: "16px" }}>
+              <div className={styles.price_Information_Box}>
+                <div className={styles.price_category_Box}>
+                  <div className={styles.price_category_details}>
+                    Total(INR)
+                  </div>
+                </div>
+                <div className={styles.price_rupees_Box}>
+                  <div className={styles.price_rupees_wrapper}>
+                    <span className={styles.price_rupees_details}>
+                      <span>₹{mainPrice}</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           {/*price details box*/}
         </div>
       </div>
     </>
-  );
-};
+  )
+}

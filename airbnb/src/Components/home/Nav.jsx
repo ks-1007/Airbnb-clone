@@ -3,7 +3,6 @@ import { BiGlobe } from "react-icons/bi"
 import { BiMenu } from "react-icons/bi"
 import { FaUserCircle } from "react-icons/fa"
 import { NavLink } from "react-router-dom"
-// import { IoSearchCircle } from 'react-icons/io5';
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Modal from "@material-ui/core/Modal"
@@ -11,12 +10,9 @@ import Button from "@material-ui/core/Button"
 import FacebookIcon from "@material-ui/icons/Facebook"
 import AppleIcon from "@material-ui/icons/Apple"
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined"
-// import styles from "./Login.module.css"
 import TextField from "@material-ui/core/TextField"
 import MenuItem from "@material-ui/core/MenuItem"
 import { Login } from "../Login/Login."
-// import { Login } from "./Login."
-// import { Logout } from "./Logout"
 
 const country = [
   {

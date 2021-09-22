@@ -9,7 +9,7 @@ import Slider from "@material-ui/core/Slider"
 import { Link } from "react-router-dom"
 import { Footer } from "./home/Footer"
 import { ConfirmAndPayNavbar } from "./confirmAndPayComp/confirmAndPayNavbar"
-
+import Loading from "./RoomDetails/Loading"
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
@@ -23,18 +23,16 @@ const useStyles = makeStyles((theme) => ({
     left: 450,
     zIndex: 1,
     border: "1px solid",
-    // padding: theme.spacing(1),
     backgroundColor: theme.palette.background.paper,
   },
 }))
 function SearchPage() {
   const classes = useStyles()
-  const [hotel, setHotel] = useState([])
+  const [hotel, setHotel] = useState(false)
   const [rating, setRating] = useState(false)
   const [review, setReview] = useState(false)
   const [filterHotel, SetFilterHotel] = useState([])
   const [value, setValue] = React.useState([100, 5000])
-  console.log(value)
   const [open, setOpen] = React.useState(false)
 
   const getData = async () => {
@@ -98,7 +96,18 @@ function SearchPage() {
     setOpen((prev) => !prev)
   }
 
-  return (
+  return !hotel ? (
+    <div
+      style={{
+        width: "100vw",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Loading />
+    </div>
+  ) : (
     <>
       <ConfirmAndPayNavbar />
       <div>

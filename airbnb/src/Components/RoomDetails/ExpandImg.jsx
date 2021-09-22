@@ -2,10 +2,6 @@ import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import ImageList from "@material-ui/core/ImageList"
 import ImageListItem from "@material-ui/core/ImageListItem"
-// import ImageListItemBar from "@material-ui/core/ImageListItemBar"
-// import IconButton from "@material-ui/core/IconButton"
-// import StarBorderIcon from "@material-ui/icons/StarBorder"
-// import itemData from "./itemData"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,20 +60,6 @@ export function ExpandImg({ images }) {
             rows={index % 3 === 0 ? 2 : 1}
           >
             <img src={item.url} alt={""} />
-            {/* <ImageListItemBar
-              title={""}
-              position="top"
-              actionIcon={
-                <IconButton
-                  aria-label={`star ${item.title}`}
-                  className={classes.icon}
-                >
-                  <StarBorderIcon />
-                </IconButton>
-              }
-              actionPosition="left"
-              className={classes.titleBar}
-            /> */}
           </ImageListItem>
         ))}
       </ImageList>

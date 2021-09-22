@@ -12,7 +12,6 @@ import PetsOutlinedIcon from "@material-ui/icons/PetsOutlined"
 import TvOutlinedIcon from "@material-ui/icons/TvOutlined"
 import AcUnitOutlinedIcon from "@material-ui/icons/AcUnitOutlined"
 import { ReserveBox } from "./ReserveBox"
-import { Calendars } from "./Calendars"
 const useStyle = makeStyles((theme) => ({
   root: {
     textAlign: "left",
@@ -89,6 +88,7 @@ export function AmenityDetails({
   starRating,
   price,
   hotelId,
+  review,
 }) {
   const classes = useStyle()
   return (
@@ -221,10 +221,14 @@ export function AmenityDetails({
           </Box>
           <Button className={classes.button}>Show all 36 amenities</Button>
         </Box>
-        {/* <Calendars /> */}
       </Box>
       <Box>
-        <ReserveBox starRating={starRating} price={price} hotelId={hotelId} />
+        <ReserveBox
+          starRating={starRating}
+          price={price}
+          hotelId={hotelId}
+          review={review}
+        />
       </Box>
       <Divider />
     </Box>

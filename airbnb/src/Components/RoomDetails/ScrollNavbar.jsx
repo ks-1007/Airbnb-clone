@@ -7,6 +7,8 @@ export function ScrollNavbar({
   showScrollNavRight,
   starRating,
   hotelId,
+  price,
+  review,
 }) {
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,7 +28,6 @@ export function ScrollNavbar({
       height: "100px",
       display: "flex",
       alignItems: "center",
-      // width: "100px",
       padding: "0 10px",
       cursor: "pointer",
       justifyContent: "center",
@@ -72,7 +73,7 @@ export function ScrollNavbar({
         <Box className={classes.flexDisplay1}>
           <Box style={{ margin: "0 20px" }}>
             <h2 style={{ margin: "0" }}>
-              ₹1,799 <span>/ night</span>
+              {price} <span>/ night</span>
             </h2>
           </Box>
           <Box
@@ -84,7 +85,7 @@ export function ScrollNavbar({
             }}
           >
             <Star style={{ color: "rgb(239,78,89)" }} /> {starRating}.{" "}
-            <span>137 reviews</span>
+            <span>{review} reviews</span>
           </Box>
         </Box>
 

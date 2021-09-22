@@ -10,9 +10,9 @@ import {
 const initState = {
   hotelList: [],
   room: {},
-  checkIn: "",
-  checkOut: "",
-  guests: {},
+  checkIn: new Date(),
+  checkOut: new Date(),
+  guests: { adults: 1, children: 0, infants: 0 },
   token: loadData("token") || "",
   isAuth: false,
 }

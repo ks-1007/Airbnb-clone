@@ -61,7 +61,6 @@ export function RoomDetailsPage() {
 
       .then(({ data }) => {
         setRoom(data)
-        console.log(room)
       })
       .catch((err) => {
         console.log("err:", err)
@@ -83,7 +82,16 @@ export function RoomDetailsPage() {
   window.addEventListener("scroll", handleScroll)
 
   return !room ? (
-    <Loading />
+    <div
+      style={{
+        width: "100vw",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Loading />
+    </div>
   ) : (
     <>
       <ScrollNavbar
@@ -91,6 +99,8 @@ export function RoomDetailsPage() {
         showScrollNavRight={showScrollNavRight}
         starRating={room.starRating}
         hotelId={hotelId}
+        price={room.price}
+        review={room.review}
       />
       <ConfirmAndPayNavbar />
       <Container className={classes.root}>
@@ -146,6 +156,7 @@ export function RoomDetailsPage() {
           starRating={room.starRating}
           price={room.price}
           hotelId={hotelId}
+          review={room.review}
         />
 
         <Divider />

@@ -21,13 +21,11 @@ function getModalStyle() {
 }
 const useStyle = makeStyles((theme) => ({
   root: {
-    // border: "2px solid black",
     borderRadius: "10px",
     height: "350px",
     display: "grid",
     gridTemplateColumns: "49.5% 49.5%",
     gridTemplateRows: "350px",
-    // padding: "5px",
     gap: "0.5%",
     justifyContent: "space-around",
     position: "relative",
@@ -82,7 +80,6 @@ const useStyle = makeStyles((theme) => ({
   },
 }))
 export function RoomImages({ images }) {
-  // console.log("images:", images)
   const classes = useStyle()
   const [modalStyle] = useState(getModalStyle)
   const [open, setOpen] = useState(false)
