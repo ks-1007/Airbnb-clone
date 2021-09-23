@@ -33,7 +33,9 @@ function Exp({ ele }) {
     if (token) {
       history.push("/hotels")
     } else {
+      // alert("Signed in successfully")
       setShow(true)
+      // history.push("/hotels")
     }
   }
   return (

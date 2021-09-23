@@ -11,6 +11,7 @@ export function Login({ closeModal }) {
   const responseGoogle = ({ tokenId }) => {
     closeModal()
     dispatch(setToken(tokenId))
+    alert("signed in successfully")
   }
   return (
     <GoogleLogin

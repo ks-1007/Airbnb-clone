@@ -35,6 +35,8 @@ function Stay({ ele }) {
       history.push("/hotels")
     } else {
       setShow(true)
+      // alert("Signed in successfully")
+      // history.push("/hotels")
     }
   }
   return (
