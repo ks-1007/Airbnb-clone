@@ -47,7 +47,7 @@ export const ConfirmAndPay = () => {
   /*dates */
 
   useMemo(() => {
-    const Difference_In_Days = DaysCalculator({ checkIn, checkOut })
+    const Difference_In_Days = DaysCalculator({ checkIn, checkOut }) + 1
     setDays(Difference_In_Days)
   }, [checkIn, checkOut])
 
