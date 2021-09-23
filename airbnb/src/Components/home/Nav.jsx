@@ -3,7 +3,7 @@ import { BiGlobe } from "react-icons/bi"
 import { BiMenu } from "react-icons/bi"
 import { FaUserCircle } from "react-icons/fa"
 import { NavLink } from "react-router-dom"
-import React from "react"
+import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Modal from "@material-ui/core/Modal"
 import Button from "@material-ui/core/Button"
@@ -13,6 +13,8 @@ import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined"
 import TextField from "@material-ui/core/TextField"
 import MenuItem from "@material-ui/core/MenuItem"
 import { Login } from "../Login/Login."
+import SimpleModal from "../Login/LoginModal"
+import { useSelector } from "react-redux"
 
 const country = [
   {
@@ -61,98 +63,112 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export function Navbar() {
-  const classes = useStyles()
-  const [modalStyle] = React.useState(getModalStyle)
-  const [open, setOpen] = React.useState(false)
-  const [cnt, setCnt] = React.useState("India +91")
-  const handleOpen = () => {
-    setOpen(true)
+  // const history = useHistory()
+  const token = useSelector((state) => state.token)
+  const [show, setShow] = useState(false)
+  const closeModal = () => {
+    setShow(false)
   }
+  const handleClick = () => {
+    if (token) {
+      alert("Already signed in")
+    } else {
+      setShow(true)
+    }
+  }
+  // const classes = useStyles()
+  // const [modalStyle] = React.useState(getModalStyle)
+  // const [open, setOpen] = React.useState(false)
+  // const [cnt, setCnt] = React.useState("India +91")
+  // const handleOpen = () => {
+  //   setOpen(true)
+  // }
 
-  const handleClose = () => {
-    setOpen(false)
-  }
-  const handleChange = (event) => {
-    setCnt(event.target.value)
-  }
-  const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <h4 id="simple-modal-title">Log in or sign up</h4>
-      <hr />
-      <div>
-        <div>
-          <h3>Welcome to Airbnb</h3>
-          <div className={styles.inputArea}>
-            <TextField
-              style={{ width: "100%" }}
-              id="standard-select-currency"
-              onChange={handleChange}
-              value={cnt}
-              select
-              label="Country/Region"
-            >
-              {country.map((option) => (
-                <MenuItem key={option.label} value={option.label}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-            <br />
-            <TextField
-              style={{ width: "100%" }}
-              id="standard-select-currency"
-              label="Phone number"
-              type="number"
-              placeholder="+1 (xxx) xxx-xxxx"
-            ></TextField>
-          </div>
-          <p style={{ fontSize: "12px" }}>
-            We’ll call or text you to confirm your number. Standard message and
-            data rates apply. <b>Privacy Policy</b>
-          </p>
-          <Button
-            style={{ width: "100%", height: "40px", marginBottom: "10px" }}
-            variant="contained"
-            color="secondary"
-          >
-            Continue
-          </Button>
-        </div>
-        <hr />
-        <div>
-          <Login />
+  // const handleClose = () => {
+  //   setOpen(false)
+  // }
+  // const handleChange = (event) => {
+  //   setCnt(event.target.value)
+  // }
+  // const body = (
+  //   <div style={modalStyle} className={classes.paper}>
+  //     <h4 id="simple-modal-title">Log in or sign up</h4>
+  //     <hr />
+  //     <div>
+  //       <div>
+  //         <h3>Welcome to Airbnb</h3>
+  //         <div className={styles.inputArea}>
+  //           <TextField
+  //             style={{ width: "100%" }}
+  //             id="standard-select-currency"
+  //             onChange={handleChange}
+  //             value={cnt}
+  //             select
+  //             label="Country/Region"
+  //           >
+  //             {country.map((option) => (
+  //               <MenuItem key={option.label} value={option.label}>
+  //                 {option.label}
+  //               </MenuItem>
+  //             ))}
+  //           </TextField>
+  //           <br />
+  //           <TextField
+  //             style={{ width: "100%" }}
+  //             id="standard-select-currency"
+  //             label="Phone number"
+  //             type="number"
+  //             placeholder="+1 (xxx) xxx-xxxx"
+  //           ></TextField>
+  //         </div>
+  //         <p style={{ fontSize: "12px" }}>
+  //           We’ll call or text you to confirm your number. Standard message and
+  //           data rates apply. <b>Privacy Policy</b>
+  //         </p>
+  //         <Button
+  //           style={{ width: "100%", height: "40px", marginBottom: "10px" }}
+  //           variant="contained"
+  //           color="secondary"
+  //         >
+  //           Continue
+  //         </Button>
+  //       </div>
+  //       <hr />
+  //       <div>
+  //         <Login />
 
-          <div className={styles.loginIconBox}>
-            <FacebookIcon
-              style={{
-                fontSize: 50,
-                borderRadius: "10",
-                color: "rgb(72,103,170)",
-              }}
-            />
-            <p>Continue with Facebook</p>
-          </div>
-          <div className={styles.loginIconBox}>
-            <AppleIcon
-              style={{
-                fontSize: 50,
-                borderRadius: "10",
-                color: "rgb(143,143,143)",
-              }}
-            />
-            <p>Continue with Apple</p>
-          </div>
-          {/* <div className={styles.loginIconBox}>
-                      <img style={{ width: 48, height: 48, borderRadius: "10" }} src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/google-512.png" alt="" />
-            <p>Continue with Google</p>
-          </div> */}
-        </div>
-      </div>
-    </div>
-  )
+  //         <div className={styles.loginIconBox}>
+  //           <FacebookIcon
+  //             style={{
+  //               fontSize: 50,
+  //               borderRadius: "10",
+  //               color: "rgb(72,103,170)",
+  //             }}
+  //           />
+  //           <p>Continue with Facebook</p>
+  //         </div>
+  //         <div className={styles.loginIconBox}>
+  //           <AppleIcon
+  //             style={{
+  //               fontSize: 50,
+  //               borderRadius: "10",
+  //               color: "rgb(143,143,143)",
+  //             }}
+  //           />
+  //           <p>Continue with Apple</p>
+  //         </div>
+  //         {/* <div className={styles.loginIconBox}>
+  //                     <img style={{ width: 48, height: 48, borderRadius: "10" }} src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/google-512.png" alt="" />
+  //           <p>Continue with Google</p>
+  //         </div> */}
+  //       </div>
+  //     </div>
+  //   </div>
+  // )
 
   return (
     <>
+      <SimpleModal show={show} closeModal={closeModal} />
       <div>
         <div className={styles.nav}>
           <div>
@@ -168,7 +184,7 @@ export function Navbar() {
             <BiGlobe />
           </span>
 
-          <div className={styles.sign} onClick={handleOpen}>
+          <div className={styles.sign} onClick={/*handleOpen*/ handleClick}>
             <span>
               <BiMenu />
             </span>
@@ -178,9 +194,9 @@ export function Navbar() {
           </div>
         </div>
       </div>
-      <Modal open={open} onClose={handleClose}>
+      {/* <Modal open={open} onClose={handleClose}>
         {body}
-      </Modal>
+      </Modal> */}
     </>
   )
 }
