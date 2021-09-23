@@ -18,7 +18,7 @@ import { addDays } from "date-fns"
 import { setCheckIn, setCheckOut } from "../Store/action"
 import { GuestInput } from "../Components/RoomDetails/GuestsInput"
 import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions"
-
+import Loading from "../Components/RoomDetails/Loading"
 export const ConfirmAndPay = () => {
   const { guests, checkIn, checkOut } = useSelector((state) => ({
     guests: state.guests,
@@ -138,7 +138,19 @@ export const ConfirmAndPay = () => {
   }, [])
 
   if (loading) {
-    return <div style={{ textAlign: "center" }}>Loading...</div>
+    // return <div style={{ textAlign: "center" }}>Loading...</div>
+    return (
+      <div
+        style={{
+          width: "100vw",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Loading />
+      </div>
+    )
   }
 
   if (confirmGo) {
