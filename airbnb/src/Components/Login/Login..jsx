@@ -1,21 +1,30 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import GoogleLogin from "react-google-login"
 import { useDispatch } from "react-redux"
 import { setToken } from "../../Store/action"
 import styles from "./Login.module.css"
 import { FcGoogle } from "react-icons/fc"
+import { useSelector } from "react-redux"
 export function Login({ closeModal }) {
   const dispatch = useDispatch()
-
+  const token = useSelector((state) => state.token)
   const responseGoogle = ({ tokenId }) => {
-    closeModal()
+    // if (token) {
+    //   alert("Already signed in")
+    // } else {
     dispatch(setToken(tokenId))
-    alert("signed in successfully")
+    // }
   }
+  // useEffect(() => {
+  //   console.log(token)
+  //   if (token !== "") {
+  //     closeModal()
+  //   }
+  // }, [token])
   return (
     <GoogleLogin
-      clientId="493953240158-22m734jk85m0h1qf91lfask8sbe6ioid.apps.googleusercontent.com"
+      clientId="703875248172-4p61g2l4e7gur3b64ou02nfr01anuh6h.apps.googleusercontent.com"
       render={(renderProps) => (
         <div
           className={styles.loginIconBox}

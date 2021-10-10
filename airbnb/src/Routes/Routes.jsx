@@ -6,6 +6,7 @@ import { RoomDetailsPage } from "../Pages/RoomDetailsPage"
 
 export function Routes() {
   return (
+    
     <Switch>
       <Route exact path="/">
         <Home />
