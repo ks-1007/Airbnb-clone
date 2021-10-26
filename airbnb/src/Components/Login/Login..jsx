@@ -14,6 +14,7 @@ export function Login({ closeModal }) {
     //   alert("Already signed in")
     // } else {
     dispatch(setToken(tokenId))
+    closeModal()
     // }
   }
   // useEffect(() => {
