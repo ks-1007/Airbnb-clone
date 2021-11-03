@@ -1,6 +1,6 @@
 # Airbnb
 ## Project:- Clone of Airbnb.co.in
-## Demo of the project: https://airbnb-clone-one-weld.vercel.app/
+## Demo link: https://airbnb-clone-one-weld.vercel.app/
 
 ### How airbnb works?-You’re just 3 steps away from your next getaway
 
